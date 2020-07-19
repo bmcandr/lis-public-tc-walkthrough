@@ -15,11 +15,20 @@
 
 :url-lis-website: https://lis.gsfc.nasa.gov/
 :url-lis-testcases: https://lis.gsfc.nasa.gov/tests/lis
+:url-lis-testcase-files: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
+:step1-filename: testcase1_ldt_parms.tgz
+:step2-filename: testcase3_ldt_ensrst.tgz
+:step4-filename: testcase4_ldt_lsmcdf.tgz
+:step5-filename: testcase5_ldt_obscdf.tgz
+:step6-filename: testcase6_lis_da.tgz
+:step7-filename: testcase7_lvt_expcomp.tgz
+
 :url-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
 :url-lis-bootcamp: https://bmcandr.github.io/lis-bootcamp
 
 :imagesdir: ./images
-:favicon: {imagesdir}/favicons/favicon.png
+:favicon: favicons/favicon.png
+:figure-caption!:
 
 :stylesheet: asciidoctor.css
 :icons: font

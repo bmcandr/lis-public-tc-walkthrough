@@ -1,0 +1,56 @@
+= LIS Public Testcases Walkthrough
+
+:author_name: Brendan McAndrew
+:author_email: brendan.b.mcandrew@nasa.gov
+:author: {author_name}
+:email: {author_email}
+
+:revnumber: 0.2
+:revdate: July 18, 2020
+:revremark: Migrated to AsciiDoc
+
+:url-lis-github: https://github.com/nasa-lis/lisf.git
+:rev-commit: 3625aa3
+:url-rev-commit: https://github.com/NASA-LIS/LISF/commit/3625aa38d36bc36fb88788d66d24b3d7e8dd1693
+
+:url-lis-website: https://lis.gsfc.nasa.gov/
+:url-lis-testcases: https://lis.gsfc.nasa.gov/tests/lis
+:url-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
+:url-lis-bootcamp: https://bmcandr.github.io/lis-bootcamp
+
+:imagesdir: ./images
+:favicon: {imagesdir}/favicons/favicon.png
+
+:stylesheet: asciidoctor.css
+:icons: font
+:source-highlighter: highlightjs
+
+:title_step1: Step 1: LSM Parameter Processing (LDT)
+:title_step2: Step 2: LSM "Open-loop" (OL) Experiment (LIS)
+:title_step3: Step 3: Ensemble Restart File Generation (LDT)
+:title_step4: Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)
+:title_step5: Step 5: Generate Observations CDF-based Files (LDT)
+:title_step6: Step 6: LSM Data Assimilation (DA) Experiment (LIS)
+:title_step7: Step 7: Comparison of OL and DA Experiments (LVT)
+
+:toc:
+
+include::intro.adoc[]
+
+include::toc.adoc[]
+
+include::setup.adoc[]
+
+include::step_1.adoc[]
+
+include::step_2.adoc[]
+
+include::step_3.adoc[]
+
+include::step_4.adoc[]
+
+include::step_5.adoc[]
+
+include::step_6.adoc[]
+
+include::step_7.adoc[]

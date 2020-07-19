@@ -1,0 +1,7 @@
+[cols="3*"]
+|===
+||Longitude|Latitude
+|Lower left|-102.875|34.375
+|Upper right|-96.125|39.625
+|Resolution|0.25|0.25
+|===

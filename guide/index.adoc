@@ -1,10 +1,8 @@
 = LIS Public Testcases Walkthrough
-
 :author_name: Brendan McAndrew
 :author_email: brendan.b.mcandrew@nasa.gov
 :author: {author_name}
 :email: {author_email}
-
 :revnumber: 0.2
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
@@ -17,7 +15,8 @@
 :url-lis-testcases: https://lis.gsfc.nasa.gov/tests/lis
 :url-lis-testcase-files: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
 :step1-filename: testcase1_ldt_parms.tgz
-:step2-filename: testcase3_ldt_ensrst.tgz
+:step2-filename: testcase2_lis_ol.tgz
+:step3-filename: testcase3_ldt_ensrst.tgz
 :step4-filename: testcase4_ldt_lsmcdf.tgz
 :step5-filename: testcase5_ldt_obscdf.tgz
 :step6-filename: testcase6_lis_da.tgz

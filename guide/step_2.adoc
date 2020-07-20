@@ -1,2 +1,13 @@
 == {title_step2}
 anchor:sec_step2[{title_step2}]
+
+=== Download Input Files
+
+The input files are available on the {url-lis-testcases}[LIS Testcase website]. While within your `$WORKING_DIR`, download and unpack the compressed tar file containing the inputs for Step 2:
+
+[#download-step1]
+[source,bash,subs="attributes"]
+----
+% curl -O {url-lis-testcase-files}{step2-filename}
+% tar -xzf {step2-filename} -C .
+----

@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="author" content="Brendan McAndrew">
+<title>LIS Public Testcases Walkthrough</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+</head>
+<body class="article">
+<div id="header">
+<h1>LIS Public Testcases Walkthrough</h1>
+<div class="details">
+<span id="author" class="author">Brendan McAndrew</span><br>
+<span id="email" class="email"><a href="mailto:brendan.b.mcandrew@nasa.gov">brendan.b.mcandrew@nasa.gov</a></span><br>
+<span id="revnumber">version 0.2,</span>
+<span id="revdate">July 18, 2020</span>
+<br><span id="revremark">Migrated to AsciiDoc</span>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction">Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <a href="https://lis.gsfc.nasa.gov/">Land Information System framework (LISF)</a> public testcases described in this document are provided for users to learn how to run and test the LISF code. The testcases include a full end-to-end suite of Land Data Toolkit (LDT), Land Information System (LIS), and Land Verification Toolkit (LVT) cases that demonstrate how to generate model parameter and assimilation-based input files using LDT, run the Noah land surface model (LSM) for a sample "open-loop" (or baseline) experiment and a data assimilation (DA) experiment using LIS, and compare output from the sample experiments using LVT. While these testcases were created to demonstrate the use of LISF, the files provided <em>could</em> be expanded to support research-related model runs.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_testcase_event_snow_blankets_the_southern_great_plains">The Testcase Event: Snow Blankets the Southern Great Plains</h3>
+<div class="paragraph">
+<p>In late April of 2017, <a href="https://www.weather.gov/gid/apr302017snow">a major snow storm event</a> occurred across the Southern Great Plains (SGP) and Rocky Mountains, an area spanning Colorado, Texas, Oklahoma, and southern Kansas. This storm event will be the focus of these testcases.</p>
+</div>
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/intro_storm_radar.jpeg" alt="intro storm radar">
+</div>
+<div class="title">(<a href="https://twitter.com/SteveBowenWx/status/858876054789910528/photo/1">Image source</a>, <a href="https://www.nohrsc.noaa.gov/snowfall_v2/index.html?season=2016-2017&amp;date=2018071912&amp;version=0">Data source</a>)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_table_of_contents">Table of Contents</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#sec-setup">Setup</a></p>
+</li>
+<li>
+<p><a href="#sec-step1">Step 1: LSM Parameter Processing Run (LDT)</a></p>
+</li>
+<li>
+<p><a href="#sec-step2">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a></p>
+</li>
+<li>
+<p><a href="#sec-step3">Step 3: Ensemble Restart File Generation (LDT)</a></p>
+</li>
+<li>
+<p><a href="#sec-step4">Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)</a></p>
+</li>
+<li>
+<p><a href="#sec-step5">Step 5: Generate Observations CDF-based Files (LDT)</a></p>
+</li>
+<li>
+<p><a href="#sec-step6">Step 6: LSM Data Assimilation (DA) Experiment (LIS)</a></p>
+</li>
+<li>
+<p><a href="#sec-step7">Step 7: Comparison of OL and DA Experiments (LVT)</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup">Setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-setup"></a></p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+If you have not set up your computing environment to compile and run the LISF code, review the <a href="https://lis.gsfc.nasa.gov/documentation/lis" target="_blank" rel="noopener">official documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_create_a_working_directory">Create a working directory</h3>
+<div class="paragraph">
+<p>To begin, create and step into a working directory that you will use throughout the testcases. This directory will be referred to as <code>$WORKING_DIR</code> from this point forward. In the following example, the working directory is called <code>lis-public-testcases</code>:</p>
+</div>
+<div id="create-workingdir" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% mkdir lis-public-testcases
+% cd lis-public-testcases</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_clone_the_lisf_source_code_repository">Clone the LISF Source Code Repository</h3>
+<div class="paragraph">
+<p>While inside your <code>$WORKING_DIR</code> use <code>git</code> to clone the LISF repository:</p>
+</div>
+<div id="clone-lis" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% git clone https://github.com/NASA-LIS/LISF.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Change directories into <code>LISF/</code> using <code>cd LISF</code>.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>git</code> again to check out commit <a href="https://github.com/NASA-LIS/LISF/commit/3625aa38d36bc36fb88788d66d24b3d7e8dd1693">3625aa3</a>, a snapshot of the code known to be compatible with these testcases (<em>as of July 18, 2020</em>).</p>
+</div>
+<div id="checkout-commit" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% git checkout 3625aa3</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configure_and_compile_the_lisf_components">Configure and Compile the LISF Components</h3>
+<div class="paragraph">
+<p>For information about configuration settings and detailed compilation instructions, see the <a href="https://lis.gsfc.nasa.gov/documentation/lis" target="_blank" rel="noopener">official documentation</a>. In general, the compilation process for each component is as follows:</p>
+</div>
+<div id="compile-ldt" class="listingblock">
+<div class="title">For LDT:</div>
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% cd ldt
+% ./configure
+> # Select compile configuration settings (see Docs)...
+% ./compile
+> # Compilation output...
+% mv LDT ../../            # move executable up into $WORKING_DIR
+% cd ..                    # change directories back into LISF</code></pre>
+</div>
+</div>
+<div id="compile-lis" class="listingblock">
+<div class="title">For LIS:</div>
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% cd lis
+% ./configure
+> # Select compile configuration settings (see Docs)...
+% ./compile
+> # Compilation output...
+% mv LIS ../../            # move executable up into $WORKING_DIR
+% cd ..                    # change directories back into LISF</code></pre>
+</div>
+</div>
+<div id="compile-lvt" class="listingblock">
+<div class="title">For LVT:</div>
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% cd lvt
+% ./configure
+> # Select compile configuration settings (see Docs)...
+% ./compile
+> # Compilation output...
+% mv LVT ../../            # move executable up into $WORKING_DIR
+% cd ..                    # change directories back into LISF</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your <code>$WORKING_DIR</code> should now contain three executable files: <code>LDT</code>, <code>LIS</code>, <code>LVT</code>. You are ready to run the testcases.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_1_lsm_parameter_processing_run_ldt">Step 1: LSM Parameter Processing Run (LDT)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step1"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_overview">Overview</h3>
+<div class="paragraph">
+<p>In this step you will learn how to run LDT to perform parameter processing for the Noah-3.6 land surface model (LSM) and generate a Noah-3.6 parameter input file to be used by LIS (and LVT) in later steps.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+These testcases were designed to be run in sequential order and later steps require the output generated by earlier steps.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_steps_to_running_ldt">Steps to Running LDT</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Compile the LDT source code to generate the LDT executable (see <a href="#sec_setup">[sec_setup]</a>)</p>
+</li>
+<li>
+<p>Collect input data needed by LDT</p>
+</li>
+<li>
+<p>Modify <code>ldt.config</code> file to define runtime configuration settings</p>
+</li>
+<li>
+<p>Run the LDT executable</p>
+</li>
+<li>
+<p>Examine output</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase1_ldt_parms.tgz
+% tar -xzf testcase1_ldt_parms.tgz -C .</code></pre>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The compressed tar file for this step is approximately 350MB compressed and 4.1GB uncompressed. Ensure that you have enough storage available before downloading testcase files.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In addition to the <code>LISF/</code> repository, your <code>$WORKING_DIR</code> will now contain the following directory and files:</p>
+</div>
+<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INPUT/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A directory that will hold parameter and input files needed throughout the testcases</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ldt.config.noah36_params</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The runtime configuration file read by LDT in this step</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_lis_input.nldas.noah36.d01.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The "target" NetCDF file generated by LDT in this step</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_MaskParamFill.log</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The "target" mask-parameter log generated by LDT in this step</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Each of the files beginning with <code>target</code> are provided to compare with the output of your run. Use command-line tools such as <code>diff</code> and <code>nccmp</code> for these comparisons.</p>
+</div>
+<div class="sect3">
+<h4 id="_the_ldt_configuration_file">The LDT Configuration File</h4>
+<div class="paragraph">
+<p>The LDT configuration file (<code>ldt.config.noah36_params</code>) contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the <a href="https://lis.gsfc.nasa.gov/documentation/lis" target="_blank" rel="noopener">official documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with <code>cat</code> or opening the file with a text editor such as <code>vim</code> or <code>emacs</code>:</p>
+</div>
+<div id="cat-ldtconfig" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">#Overall driver options
+LDT running mode:                       "LSM parameter processing"
+Processed LSM parameter filename:       ./lis_input.nldas.noah36.d01.nc <i class="conum" data-value="1"></i><b>(1)</b>
+LIS number of nests:                    1
+Number of surface model types:          2
+Surface model types:                    "LSM" "Openwater"
+Land surface model:                     "Noah.3.6" <i class="conum" data-value="2"></i><b>(2)</b>
+Lake model:                             none
+Water fraction cutoff value:            0.5
+
+Number of met forcing sources:          0
+Met forcing sources:                    "NLDAS2"
+Met spatial transform methods:          "neighbor"  # bilinear
+Topographic correction method (met forcing):  "lapse-rate"
+Temporal interpolation method (met forcing): linear
+LDT diagnostic file:                    ldtlog <i class="conum" data-value="3"></i><b>(3)</b>
+LDT output directory:                   OUTPUT <i class="conum" data-value="4"></i><b>(4)</b>
+Undefined value:                       -9999.0
+# ...
+#LIS domain <i class="conum" data-value="5"></i><b>(5)</b>
+Map projection of the LIS domain:      latlon
+Run domain lower left lat:             34.375
+Run domain lower left lon:            -102.875
+Run domain upper right lat:            39.625
+Run domain upper right lon:           -96.125
+Run domain resolution (dx):             0.25
+Run domain resolution (dy):             0.25
+
+# Parameters
+Landcover data source:          MODIS_Native <i class="conum" data-value="6"></i><b>(6)</b>
+Landcover classification:       IGBPNCEP
+Landcover file:                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <i class="conum" data-value="6"></i><b>(6)</b>
+Landcover spatial transform:    tile
+Landcover fill option:          none # Set to none if creating land mask
+Landcover map projection:       latlon
+# ...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The name of the NetCDF-formatted parameter file to be generated which will be used by LIS</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The LSM of interest (e.g., <a href="https://ral.ucar.edu/solutions/products/noah-multiparameterization-land-surface-model-noah-mp-lsm">Noah.3.6</a>)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The name of the diagnostic log file</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The directory where LDT output will be placed</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The grid projection, domain extents, and spatial resolution to be used by LIS (and LVT)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Data source settings and paths (e.g., landcover datasets, elevation datasets) and additional features of interest (e.g., irrigation settings)</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Make sure the desired options are selected for the Noah.3.6 model and that filepaths correctly point to the local <code>INPUT/</code> directory in your <code>$WORKING_DIR</code> (i.e., paths should begin <code>./INPUT</code>).</p>
+</div>
+<div class="sect4">
+<h5 id="_noah_land_surface_model_parameters">Noah Land Surface Model Parameters</h5>
+<div class="paragraph">
+<p>As you may have noticed, these testcases utilize NOAA/NCAR&#8217;s Noah LSM, v3.6. The input parameters selected in <code>ldt.config.noah36_params</code> include:</p>
+</div>
+<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Dataset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Landcover</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MODIS-based IGBP landcover map (~ 1 km, NOAA)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Soil texture</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FAO+STATSGOv1 combined soil texture map (~ 1 km, NOAA)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Greenness fraction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AVHRR-based monthly climatology (1.0 deg, NOAA)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Snow-free albedo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Monthly climatology dataset (1.0 deg, NOAA)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maximum snow albedo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MODIS-based maximum snow albedo (0.05 deg; Mike Barlage, NCAR)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bottom of soil column temperature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISLSCP-1 climatology dataset (1.0 deg)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_grid_domain">Grid Domain</h5>
+<div class="paragraph">
+<p>The grid domain defined in the LDT configuration file will be placed in <code>lis_input.nldas.noah36.d01.nc</code>, the NetCDF-formatted parameter file generated by LDT which LIS will read in automatically at run-time. For these testcases we will be using the domain depicted by the black box on this map:</p>
+</div>
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock text-center">
+<div class="content">
+<img src="./images/step_1_domain_radar.jpeg" alt="step 1 domain radar">
+</div>
+<div class="title">Testcase domain (<a href="https://github.com/bmcandr/lis-public-testcases/blob/master/guide/domain.geojson">geojson</a>)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_running_ldt_the_parameter_processing_step">Running LDT - The Parameter Processing Step</h3>
+<div class="paragraph">
+<p>We&#8217;re now ready to run the LDT executable using the input files downloaded above (see <a href="#_download_input_files">Download Input Files</a>).</p>
+</div>
+<div class="paragraph">
+<p>In your <code>$WORKING_DIR</code>, execute the following command to run LDT:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% ./LDT ldt.config.noah36_params</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It should take a couple of minutes to run. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal and the run appears successful, use <code>tail ldtlog.0000</code> to look for a confirmation message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% tail ldtlog.0000
+ Param_Check: Estimate conservative interpolated bottom temperature values ...
+ [INFO] Reading ISCLSP1 (1.0 deg res) Native Bottom Temperature file:
+ ./INPUT/LS_PARAMETERS/noah_2dparms/SOILTEMP.60
+ #Regridding: Applying budget-bilinear interp to input parameter
+ Checking/filling mask values for: TBOT
+ Performing lapse-rate correction to Tbot output.
+ -- Finished writing parameters to netcdf output file --
+ --------------------------------
+  Finished LDT run
+ --------------------------------</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <code>ldtlog.0000</code> in your <code>$WORKING_DIR</code> ends with the above message, the run completed successfully. Run <code>ls</code> in the terminal to see the new files created by LDT. In particular, verify that the LIS input file <code>lis_input.nldas.noah36.d01.nc</code> was produced.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ldt_output_files">LDT Output Files</h3>
+<div class="paragraph">
+<p>The following files are typically generated by an LDT parameter processing run:</p>
+</div>
+<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lis_input.d01.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The NetCDF-formatted model parameter file which LIS reads at runtime. <code>d01</code> refers to the indexed domain, typically used as "nests" for NASA-Unified WRF simulations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>lislog.0000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The runtime configuration file read by LDT in this stepThe output diagnostic file that provides runtime messages, including warnings and error messages. This file is useful for verifying successful run completion and troubleshooting unsuccessful runs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MaskParamFill.log</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The "target" NetCDF file generated by LDT in this stepThis diagnostic file informs of any disagreements between an LSM-based parameter and the landmask, and whether any parameter gridcells were "filled" to agree with the landmask.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The output filenames for <code>lis_input.d01.nc</code> and <code>ldtlog.0000</code> can be defined in the <code>ldt.config</code> file, but the filename of <code>MaskParamFill.log</code> cannot be modified.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_exploring_the_lis_configuration_file">Exploring the LIS Configuration File</h5>
+<div class="paragraph">
+<p>The contents of the LIS input file produced by LDT can be examined visually using a command-line program such as <a href="http://meteora.ucsd.edu/~pierce/ncview_home_page.html" target="_blank" rel="noopener"><code>ncview</code></a> or a desktop application like NASA&#8217;s <a href="https://www.giss.nasa.gov/tools/panoply/" target="_blank" rel="noopener">Panoply</a>. For this walkthrough we will be using <code>ncview</code>.</p>
+</div>
+<div class="paragraph">
+<p>Open the LIS input file using <code>ncview</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% ncview lis_input.nldas.noah36.d01.nc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In the <code>ncview</code> window that opens, click on the widget labeled <strong>DOMAINMASK</strong>. A second window will open containing a map of the mask. The domain we are using is a simple rectangle so, as expected, all values are equal to <code>1</code>.</p>
+</div>
+<div class="paragraph">
+<p>Click on the widget labeled <strong>LANDMASK</strong>. Again, the values are all equal to <code>1</code>. This indicates that all grid cells within the domain are treated as land and, as a result, the input file should <em>not</em> contain any undefined values (e.g., <code>-9999</code>).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/step_1_landmask.png" alt="step 1 landmask">
+</div>
+<div class="title">LANDMASK dataset</div>
+</div>
+<div class="paragraph">
+<p>Click on the <strong>LANDCOVER</strong> widget to view the landcover variable. In the bottom third of the <code>ncview</code> window, click on the widget below the label <em>Current</em> to cycle through th 20 different <a href="http://www.eomf.ou.edu/static/IGBP.pdf">IGBP landcover and land use classes</a>. In the screenshot below the <em>Crop</em> class is selected (the classes are zero-indexed in <code>ncview</code>; add 1 to index to convert to IGBP class).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/step_1_landcover.png" alt="step 1 landcover">
+</div>
+<div class="title">The <em>Crop</em> class of the <strong>LANDCOVER</strong> dataset</div>
+</div>
+<div class="paragraph">
+<p>Click on the <strong>TEXTURE</strong> widget to view the soil texture dataset. Click on the widget below the label <em>Current</em>. This is the FAO+STATSGO soil texture map, aggregated using the <code>tile</code> option for the <code>Soil texture spatial transform:</code> setting in <code>ldt.config</code>. The map shows the fraction, or frequencies, of each soil type within each 0.25° degree grid cell of our domain.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/step_1_soil_texture_tile.png" alt="step 1 soil texture tile">
+</div>
+<div class="title">Soil texture, tile-based aggregation</div>
+</div>
+<div class="paragraph">
+<p>LDT provides several other options for grid cell aggregation including <code>none</code>, <code>mode</code>, and <code>neighbor</code>. What would the output look like if we were to rerun LDT after switching from <code>tile</code> to <code>mode</code>? Open <code>ldt.config.noah36_params</code> in a text editor and change the <code>Soil texture spatial transform</code> option from <code>tile</code> to <code>mode</code> as below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">...
+Soil texture spatial transform: mode
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rerun LDT:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% ./LDT ldt.config.noah36_params</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check the end of <code>ldtlog.0000</code> to verify LDT ran successfully. Again, open the LIS input file using <code>ncview</code> and click on the <strong>TEXTURE</strong> widget.</p>
+</div>
+<div class="paragraph">
+<p>image::step_1_soil_texture_mode.png</p>
+</div>
+<div class="paragraph">
+<p>Each soil type now shows a total value of 1 within each 0.25 degree grid cell of our domain. Why? The <code>mode</code> option selects the <em>dominant</em> soil type for each grid cell.</p>
+</div>
+<div class="paragraph">
+<p>For comparison:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./images/step_1_soil_texture_comparison.png" alt="step 1 soil texture comparison">
+</div>
+<div class="title">Dominant vs. fractional soil type</div>
+</div>
+<div class="paragraph">
+<p>Another program called <code>ncdump</code> can be used to directly view the datasets contained in NetCDF files. For example, the <code>-h</code> flag can be used to print the dimensions, variable names, and attributes of the file to the terminal:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% ncdump -h lis_input.nldas.noah36.d01.nc
+netcdf lis_input.nldas.noah36.d01 {
+dimensions:
+    east_west = 28 ;
+    north_south = 22 ;
+    east_west_b = 32 ;
+    north_south_b = 26 ;
+    month = 12 ;
+    time = 1 ;
+    sfctypes = 21 ;          # Note: 21 includes “openwater” surface type
+    soiltypes = 16 ;
+    elevbins = 1 ;
+    slopebins = 1 ;
+    aspectbins = 1 ;
+variables:
+    float time(time) ;
+    float DOMAINMASK(north_south, east_west) ;
+          DOMAINMASK:standard_name = "DOMAINMASK" ;
+          DOMAINMASK:units = "" ;
+          DOMAINMASK:scale_factor = 1.f ;
+          DOMAINMASK:add_offset = 0.f ;
+          DOMAINMASK:missing_value = -9999.f;
+          DOMAINMASK:vmin = 0.f ;
+          DOMAINMASK:vmax = 0.f ;
+          DOMAINMASK:num_bins = 1 ;
+global attributes:
+    :MAP_PROJECTION = "EQUIDISTANT CYLINDRICAL" ;
+    :SOUTH_WEST_CORNER_LAT = 34.375f ;
+    :SOUTH_WEST_CORNER_LON = -102.875f ;
+    :DX = 0.25f ;
+    :DY = 0.25f ;
+    :INC_WATER_PTS = "true" ;
+    :LANDCOVER_SCHEME = "IGBPNCEP" ;
+    :BARESOILCLASS = 16 ;
+    :URBANCLASS = 13 ;
+    :SNOWCLASS = 15 ;
+    :WATERCLASS = 17 ;
+    :WETLANDCLASS = 11 ;
+    :GLACIERCLASS = 15 ;
+    :NUMVEGTYPES = 17 ;
+    :LANDMASK_SOURCE = "MODIS_Native" ;
+    :SFCMODELS = "Noah.3.6+Openwater" ;
+    :SOILTEXT_SCHEME = "STATSGO" ;
+    :GREENNESS_DATA_INTERVAL = "monthly" ;
+    :ALBEDO_DATA_INTERVAL = "monthly" ;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_comparing_output">Comparing Output</h5>
+<div class="paragraph">
+<p>To further confirm that LDT ran successfully, compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with <code>target_</code>). Use <code>ncview</code> to compare your <code>lis_input.nldas.noah36.d01.nc</code> with <code>target_lis_input.nldas.noah36.d01.nc</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_wrap_up">Wrap-up</h3>
+<div class="paragraph">
+<p>The LDT parameter processing run generates input parameters and files that LIS requires. You now have all the files needed to continue on to <a href="#sec-step2">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_2_lsm_open_loop_ol_experiment_lis">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step2"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files_2">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase2_lis_ol.tgz
+% tar -xzf testcase2_lis_ol.tgz -C .</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_3_ensemble_restart_file_generation_ldt">Step 3: Ensemble Restart File Generation (LDT)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step3"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files_3">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase3_ldt_ensrst.tgz
+% tar -xzf testcase3_ldt_ensrst.tgz -C .</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="step1">Step 1: LSM Parameter Processing Run (LDT)</h3>
+<div class="paragraph">
+<p><a href="#step1">Step 1: LSM Parameter Processing Run (LDT)</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_4_generate_lsm_ol_cumulative_density_function_based_files_ldt">Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step4"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files_4">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase4_ldt_lsmcdf.tgz
+% tar -xzf testcase4_ldt_lsmcdf.tgz -C .</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_5_generate_observations_cdf_based_files_ldt">Step 5: Generate Observations CDF-based Files (LDT)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step5"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files_5">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase5_ldt_obscdf.tgz
+% tar -xzf testcase5_ldt_obscdf.tgz -C .</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_6_lsm_data_assimilation_da_experiment_lis">Step 6: LSM Data Assimilation (DA) Experiment (LIS)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step6"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files_6">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase6_lis_da.tgz
+% tar -xzf testcase6_lis_da.tgz -C .</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_7_comparison_of_ol_and_da_experiments_lvt">Step 7: Comparison of OL and DA Experiments (LVT)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a id="sec-step7"></a></p>
+</div>
+<div class="sect2">
+<h3 id="_download_input_files_7">Download Input Files</h3>
+<div class="paragraph">
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase7_lvt_expcomp.tgz
+% tar -xzf testcase7_lvt_expcomp.tgz -C .</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 0.2<br>
+Last updated 2020-07-20 20:44:21 -0400
+</div>
+</div>
+</body>
+</html>

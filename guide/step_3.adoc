@@ -1,13 +1,11 @@
-== {title_step3}
-anchor:sec_step3[{title_step3}]
+== {title-step3}
+anchor:sec-step3[{title-step3}]
 
-=== Download Input Files
+:download-filename: {step3-filename}
 
-The input files are available on the {url-lis-testcases}[LIS Testcase website]. While within your `$WORKING_DIR`, download and unpack the compressed tar file containing the inputs for Step 3:
+include::download_input_files.adoc[]
 
-[#download-step1]
-[source,bash,subs="attributes"]
-----
-% curl -O {url-lis-testcase-files}{step3-filename}
-% tar -xzf {step3-filename} -C .
-----
+[#step1]
+=== Step 1: LSM Parameter Processing Run (LDT)
+
+<<step1>>

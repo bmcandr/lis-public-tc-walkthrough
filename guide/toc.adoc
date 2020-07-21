@@ -1,10 +1,10 @@
 == Table of Contents
 
-* <<sec_setup>>
-* <<sec_step1>>
-* <<sec_step2>>
-* <<sec_step3>>
-* <<sec_step4>>
-* <<sec_step5>>
-* <<sec_step6>>
-* <<sec_step7>>
+* <<sec-setup>>
+* <<sec-step1>>
+* <<sec-step2>>
+* <<sec-step3>>
+* <<sec-step4>>
+* <<sec-step5>>
+* <<sec-step6>>
+* <<sec-step7>>

@@ -1,5 +1,5 @@
 == Setup
-anchor:sec_setup[Setup]
+anchor:sec-setup[Setup]
 
 :workingdir: lis-public-testcases
 

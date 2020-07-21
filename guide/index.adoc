@@ -33,13 +33,13 @@
 :icons: font
 :source-highlighter: highlightjs
 
-:title_step1: Step 1: LSM Parameter Processing (LDT)
-:title_step2: Step 2: LSM "Open-loop" (OL) Experiment (LIS)
-:title_step3: Step 3: Ensemble Restart File Generation (LDT)
-:title_step4: Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)
-:title_step5: Step 5: Generate Observations CDF-based Files (LDT)
-:title_step6: Step 6: LSM Data Assimilation (DA) Experiment (LIS)
-:title_step7: Step 7: Comparison of OL and DA Experiments (LVT)
+:title-step1: Step 1: LSM Parameter Processing Run (LDT)
+:title-step2: Step 2: LSM "Open-loop" (OL) Experiment (LIS)
+:title-step3: Step 3: Ensemble Restart File Generation (LDT)
+:title-step4: Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)
+:title-step5: Step 5: Generate Observations CDF-based Files (LDT)
+:title-step6: Step 6: LSM Data Assimilation (DA) Experiment (LIS)
+:title-step7: Step 7: Comparison of OL and DA Experiments (LVT)
 
 :toc:
 

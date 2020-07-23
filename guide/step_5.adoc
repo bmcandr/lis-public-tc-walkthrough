@@ -1,6 +1,7 @@
 == {title-step5}
 anchor:sec-step5[{title-step5}]
 
+:step-label: Step 5
 :download-filename: {step5-filename}
 
 include::download_input_files.adoc[]

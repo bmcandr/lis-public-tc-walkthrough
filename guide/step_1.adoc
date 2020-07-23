@@ -1,6 +1,8 @@
 == {title-step1}
 anchor:sec-step1[{title-step1}]
 
+:step-label: Step 1
+
 :download-filename: {step1-filename}
 :ldtconfig-filename: ldt.config.noah36_params
 
@@ -24,7 +26,7 @@ include::download_input_files.adoc[]
 
 WARNING: The compressed tar file for this step is approximately 350MB compressed and 4.1GB uncompressed. Ensure that you have enough storage available before downloading testcase files.
 
-In addition to the `LISF/` repository, your `$WORKING_DIR` will now contain the following directory and files:
+In addition to the `LISF/` directory and the three executables, your `$WORKING_DIR` should now contain the following directory and files:
 
 [cols="2*",frame=topbot,stripes=odd]
 [%autowidth]
@@ -39,48 +41,48 @@ Each of the files beginning with `target` are provided to compare with the outpu
 
 ==== The LDT Configuration File
 
-The LDT configuration file (`{ldtconfig-filename}`) contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the {url-official-docs}[official documentation,window=_blank].
+The LDT configuration file (`{ldtconfig-filename}`) contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the {url-lis-official-docs}[official documentation,window=_blank].
 
-Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with `cat` or opening the file with a text editor such as `vim` or `emacs`:
+Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with `cat` or opening the file with a text editor such as `vim` or `emacs`. Key elements of the file are highlighted below:
 
 [#cat-ldtconfig]
 [source,shell]
 ----
 #Overall driver options
-LDT running mode:                       "LSM parameter processing"
-Processed LSM parameter filename:       ./lis_input.nldas.noah36.d01.nc # <1>
-LIS number of nests:                    1
-Number of surface model types:          2
-Surface model types:                    "LSM" "Openwater"
-Land surface model:                     "Noah.3.6" <2>
-Lake model:                             none
-Water fraction cutoff value:            0.5
+LDT running mode:                              "LSM parameter processing"
+Processed LSM parameter filename:              ./lis_input.nldas.noah36.d01.nc # <1>
+LIS number of nests:                           1
+Number of surface model types:                 2
+Surface model types:                           "LSM" "Openwater"
+Land surface model:                            "Noah.3.6" <2>
+Lake model:                                     none
+Water fraction cutoff value:                    0.5
 
-Number of met forcing sources:          0
-Met forcing sources:                    "NLDAS2"
-Met spatial transform methods:          "neighbor"  # bilinear
-Topographic correction method (met forcing):  "lapse-rate"
-Temporal interpolation method (met forcing): linear
-LDT diagnostic file:                    ldtlog <3>
-LDT output directory:                   OUTPUT <4>
-Undefined value:                       -9999.0
+Number of met forcing sources:                  0
+Met forcing sources:                            "NLDAS2"
+Met spatial transform methods:                  "neighbor"  # bilinear
+Topographic correction method (met forcing):    "lapse-rate"
+Temporal interpolation method (met forcing):    linear
+LDT diagnostic file:                            ldtlog <3>
+LDT output directory:                           OUTPUT <4>
+Undefined value:                                -9999.0
 # ...
 #LIS domain <5>
-Map projection of the LIS domain:      latlon
-Run domain lower left lat:             34.375
-Run domain lower left lon:            -102.875
-Run domain upper right lat:            39.625
-Run domain upper right lon:           -96.125
-Run domain resolution (dx):             0.25
-Run domain resolution (dy):             0.25
+Map projection of the LIS domain:               latlon
+Run domain lower left lat:                      34.375
+Run domain lower left lon:                      -102.875
+Run domain upper right lat:                     39.625
+Run domain upper right lon:                     -96.125
+Run domain resolution (dx):                     0.25
+Run domain resolution (dy):                     0.25
 
 # Parameters
-Landcover data source:          MODIS_Native <6>
-Landcover classification:       IGBPNCEP
-Landcover file:                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <6>
-Landcover spatial transform:    tile
-Landcover fill option:          none # Set to none if creating land mask
-Landcover map projection:       latlon
+Landcover data source:                          MODIS_Native <6>
+Landcover classification:                       IGBPNCEP
+Landcover file:                                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <6>
+Landcover spatial transform:                    tile
+Landcover fill option:                          none # Set to none if creating land mask
+Landcover map projection:                       latlon
 # ...
 ----
 <1> The name of the NetCDF-formatted parameter file to be generated which will be used by LIS
@@ -270,8 +272,21 @@ global attributes:
 
 ===== Comparing Output
 
-To further confirm that LDT ran successfully, compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with `target_`). Use `ncview` to compare your `lis_input.nldas.noah36.d01.nc` with `target_lis_input.nldas.noah36.d01.nc`.
+To further confirm that LDT ran successfully, you can compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with `target_`). For example, use https://gitlab.com/remikz/nccmp[`nccmp`] to compare your `lis_input.nldas.noah36.d01.nc` with `target_lis_input.nldas.noah36.d01.nc`:
+
+[source,shell]
+----
+% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc
+----
+
+Where the flags enable the following options:
+* `m`: compare metadata
+* `d`: compare data
+* `f`: force comparison to continue after differences found
+* `s`: report identical files to terminal (by default `nccmp` runs silently if files are identical)
+
+NOTE: Some files may not be identical, but any differences reported should be small.
 
 === Wrap-up
 
-The LDT parameter processing run generates input parameters and files that LIS requires. You now have all the files needed to continue on to <<sec-step2>>.
+The LDT parameter processing run generates input parameters and files that LIS requires. Your `$WORKING_DIR` should now contain all the files needed to continue on to <<sec-step2>>.

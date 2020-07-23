@@ -436,6 +436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 #footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
 @media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="article">
 <div id="header">
@@ -453,7 +454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <a href="https://lis.gsfc.nasa.gov/">Land Information System framework (LISF)</a> public testcases described in this document are provided for users to learn how to run and test the LISF code. The testcases include a full end-to-end suite of Land Data Toolkit (LDT), Land Information System (LIS), and Land Verification Toolkit (LVT) cases that demonstrate how to generate model parameter and assimilation-based input files using LDT, run the Noah land surface model (LSM) for a sample "open-loop" (or baseline) experiment and a data assimilation (DA) experiment using LIS, and compare output from the sample experiments using LVT. While these testcases were created to demonstrate the use of LISF, the files provided <em>could</em> be expanded to support research-related model runs.</p>
+<p>The <a href="https://lis.gsfc.nasa.gov">Land Information System framework (LISF)</a> public testcases described in this document are provided for users to learn how to run and test the LISF code. The testcases include a full end-to-end suite of Land Data Toolkit (LDT), Land Information System (LIS), and Land Verification Toolkit (LVT) cases that demonstrate how to generate model parameter and assimilation-based input files using LDT, run the Noah land surface model (LSM) for a sample "open-loop" (or baseline) experiment and a data assimilation (DA) experiment using LIS, and compare output from the sample experiments using LVT. While these testcases were created to demonstrate the use of LISF, the files provided <em>could</em> be expanded to support research-related model runs.</p>
 </div>
 <div class="sect2">
 <h3 id="_the_testcase_event_snow_blankets_the_southern_great_plains">The Testcase Event: Snow Blankets the Southern Great Plains</h3>
@@ -547,10 +548,15 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 </div>
 <div class="paragraph">
-<p>Change directories into <code>LISF/</code> using <code>cd LISF</code>.</p>
+<p>Then, change directories into <code>LISF/</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% cd LISF</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Use <code>git</code> again to check out commit <a href="https://github.com/NASA-LIS/LISF/commit/3625aa38d36bc36fb88788d66d24b3d7e8dd1693">3625aa3</a>, a snapshot of the code known to be compatible with these testcases (<em>as of July 18, 2020</em>).</p>
+<p>Use <code>git</code> again to check out commit <a href="https://github.com/NASA-LIS/LISF/commit/3625aa3">3625aa3</a>, a snapshot of the code known to be compatible with these testcases (<em>as of July 18, 2020</em>).</p>
 </div>
 <div id="checkout-commit" class="listingblock">
 <div class="content">
@@ -564,7 +570,6 @@ If you have not set up your computing environment to compile and run the LISF co
 <p>For information about configuration settings and detailed compilation instructions, see the <a href="https://lis.gsfc.nasa.gov/documentation/lis" target="_blank" rel="noopener">official documentation</a>. In general, the compilation process for each component is as follows:</p>
 </div>
 <div id="compile-ldt" class="listingblock">
-<div class="title">For LDT:</div>
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">% cd ldt
 % ./configure
@@ -575,32 +580,11 @@ If you have not set up your computing environment to compile and run the LISF co
 % cd ..                    # change directories back into LISF</code></pre>
 </div>
 </div>
-<div id="compile-lis" class="listingblock">
-<div class="title">For LIS:</div>
-<div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% cd lis
-% ./configure
-> # Select compile configuration settings (see Docs)...
-% ./compile
-> # Compilation output...
-% mv LIS ../../            # move executable up into $WORKING_DIR
-% cd ..                    # change directories back into LISF</code></pre>
-</div>
-</div>
-<div id="compile-lvt" class="listingblock">
-<div class="title">For LVT:</div>
-<div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% cd lvt
-% ./configure
-> # Select compile configuration settings (see Docs)...
-% ./compile
-> # Compilation output...
-% mv LVT ../../            # move executable up into $WORKING_DIR
-% cd ..                    # change directories back into LISF</code></pre>
-</div>
+<div class="paragraph">
+<p>Repeat the above process to generate the LIS and LVT executables.</p>
 </div>
 <div class="paragraph">
-<p>Your <code>$WORKING_DIR</code> should now contain three executable files: <code>LDT</code>, <code>LIS</code>, <code>LVT</code>. You are ready to run the testcases.</p>
+<p>Change directories back into your <code>$WORKING_DIR</code> which should now contain three executable files: <code>LDT</code>, <code>LIS</code>, <code>LVT</code>. You are ready to proceed with <a href="#sec-step1">Step 1: LSM Parameter Processing Run (LDT)</a>.</p>
 </div>
 </div>
 </div>
@@ -675,7 +659,7 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 </table>
 </div>
 <div class="paragraph">
-<p>In addition to the <code>LISF/</code> repository, your <code>$WORKING_DIR</code> will now contain the following directory and files:</p>
+<p>In addition to the <code>LISF/</code> directory and the three executables, your <code>$WORKING_DIR</code> should now contain the following directory and files:</p>
 </div>
 <table class="tableblock frame-topbot grid-all stripes-odd fit-content">
 <colgroup>
@@ -710,45 +694,45 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 <p>The LDT configuration file (<code>ldt.config.noah36_params</code>) contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the <a href="https://lis.gsfc.nasa.gov/documentation/lis" target="_blank" rel="noopener">official documentation</a>.</p>
 </div>
 <div class="paragraph">
-<p>Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with <code>cat</code> or opening the file with a text editor such as <code>vim</code> or <code>emacs</code>:</p>
+<p>Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with <code>cat</code> or opening the file with a text editor such as <code>vim</code> or <code>emacs</code>. Key elements of the file are highlighted below:</p>
 </div>
 <div id="cat-ldtconfig" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">#Overall driver options
-LDT running mode:                       "LSM parameter processing"
-Processed LSM parameter filename:       ./lis_input.nldas.noah36.d01.nc <i class="conum" data-value="1"></i><b>(1)</b>
-LIS number of nests:                    1
-Number of surface model types:          2
-Surface model types:                    "LSM" "Openwater"
-Land surface model:                     "Noah.3.6" <i class="conum" data-value="2"></i><b>(2)</b>
-Lake model:                             none
-Water fraction cutoff value:            0.5
+LDT running mode:                              "LSM parameter processing"
+Processed LSM parameter filename:              ./lis_input.nldas.noah36.d01.nc <i class="conum" data-value="1"></i><b>(1)</b>
+LIS number of nests:                           1
+Number of surface model types:                 2
+Surface model types:                           "LSM" "Openwater"
+Land surface model:                            "Noah.3.6" <i class="conum" data-value="2"></i><b>(2)</b>
+Lake model:                                     none
+Water fraction cutoff value:                    0.5
 
-Number of met forcing sources:          0
-Met forcing sources:                    "NLDAS2"
-Met spatial transform methods:          "neighbor"  # bilinear
-Topographic correction method (met forcing):  "lapse-rate"
-Temporal interpolation method (met forcing): linear
-LDT diagnostic file:                    ldtlog <i class="conum" data-value="3"></i><b>(3)</b>
-LDT output directory:                   OUTPUT <i class="conum" data-value="4"></i><b>(4)</b>
-Undefined value:                       -9999.0
+Number of met forcing sources:                  0
+Met forcing sources:                            "NLDAS2"
+Met spatial transform methods:                  "neighbor"  # bilinear
+Topographic correction method (met forcing):    "lapse-rate"
+Temporal interpolation method (met forcing):    linear
+LDT diagnostic file:                            ldtlog <i class="conum" data-value="3"></i><b>(3)</b>
+LDT output directory:                           OUTPUT <i class="conum" data-value="4"></i><b>(4)</b>
+Undefined value:                                -9999.0
 # ...
 #LIS domain <i class="conum" data-value="5"></i><b>(5)</b>
-Map projection of the LIS domain:      latlon
-Run domain lower left lat:             34.375
-Run domain lower left lon:            -102.875
-Run domain upper right lat:            39.625
-Run domain upper right lon:           -96.125
-Run domain resolution (dx):             0.25
-Run domain resolution (dy):             0.25
+Map projection of the LIS domain:               latlon
+Run domain lower left lat:                      34.375
+Run domain lower left lon:                      -102.875
+Run domain upper right lat:                     39.625
+Run domain upper right lon:                     -96.125
+Run domain resolution (dx):                     0.25
+Run domain resolution (dy):                     0.25
 
 # Parameters
-Landcover data source:          MODIS_Native <i class="conum" data-value="6"></i><b>(6)</b>
-Landcover classification:       IGBPNCEP
-Landcover file:                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <i class="conum" data-value="6"></i><b>(6)</b>
-Landcover spatial transform:    tile
-Landcover fill option:          none # Set to none if creating land mask
-Landcover map projection:       latlon
+Landcover data source:                          MODIS_Native <i class="conum" data-value="6"></i><b>(6)</b>
+Landcover classification:                       IGBPNCEP
+Landcover file:                                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <i class="conum" data-value="6"></i><b>(6)</b>
+Landcover spatial transform:                    tile
+Landcover fill option:                          none # Set to none if creating land mask
+Landcover map projection:                       latlon
 # ...</code></pre>
 </div>
 </div>
@@ -1052,14 +1036,38 @@ global attributes:
 <div class="sect4">
 <h5 id="_comparing_output">Comparing Output</h5>
 <div class="paragraph">
-<p>To further confirm that LDT ran successfully, compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with <code>target_</code>). Use <code>ncview</code> to compare your <code>lis_input.nldas.noah36.d01.nc</code> with <code>target_lis_input.nldas.noah36.d01.nc</code>.</p>
+<p>To further confirm that LDT ran successfully, you can compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with <code>target_</code>). For example, use <a href="https://gitlab.com/remikz/nccmp"><code>nccmp</code></a> to compare your <code>lis_input.nldas.noah36.d01.nc</code> with <code>target_lis_input.nldas.noah36.d01.nc</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where the flags enable the following options:
+* <code>m</code>: compare metadata
+* <code>d</code>: compare data
+* <code>f</code>: force comparison to continue after differences found
+* <code>s</code>: report identical files to terminal (by default <code>nccmp</code> runs silently if files are identical)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some files may not be identical, but any differences reported should be small.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_wrap_up">Wrap-up</h3>
 <div class="paragraph">
-<p>The LDT parameter processing run generates input parameters and files that LIS requires. You now have all the files needed to continue on to <a href="#sec-step2">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a>.</p>
+<p>The LDT parameter processing run generates input parameters and files that LIS requires. Your <code>$WORKING_DIR</code> should now contain all the files needed to continue on to <a href="#sec-step2">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a>.</p>
 </div>
 </div>
 </div>
@@ -1073,7 +1081,7 @@ global attributes:
 <div class="sect2">
 <h3 id="_download_input_files_2">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 2:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1093,19 +1101,13 @@ global attributes:
 <div class="sect2">
 <h3 id="_download_input_files_3">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 3:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase3_ldt_ensrst.tgz
 % tar -xzf testcase3_ldt_ensrst.tgz -C .</code></pre>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="step1">Step 1: LSM Parameter Processing Run (LDT)</h3>
-<div class="paragraph">
-<p><a href="#step1">Step 1: LSM Parameter Processing Run (LDT)</a></p>
 </div>
 </div>
 </div>
@@ -1119,7 +1121,7 @@ global attributes:
 <div class="sect2">
 <h3 id="_download_input_files_4">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 4:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1139,7 +1141,7 @@ global attributes:
 <div class="sect2">
 <h3 id="_download_input_files_5">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 5:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1159,7 +1161,7 @@ global attributes:
 <div class="sect2">
 <h3 id="_download_input_files_6">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 6:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1179,7 +1181,7 @@ global attributes:
 <div class="sect2">
 <h3 id="_download_input_files_7">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 7:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1194,7 +1196,7 @@ global attributes:
 <div id="footer">
 <div id="footer-text">
 Version 0.2<br>
-Last updated 2020-07-20 20:44:21 -0400
+Last updated 2020-07-23 00:24:05 -0400
 </div>
 </div>
 </body>

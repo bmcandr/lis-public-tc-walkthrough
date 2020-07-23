@@ -489,11 +489,11 @@ These testcases were designed to be run in sequential order and later steps requ
 <div class="sect2">
 <h3 id="_download_input_files">Download Input Files</h3>
 <div class="paragraph">
-<p>The input files are available on the {url-lis-testcases}[LIS Testcase website]. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The input files are available on the {url-lis-testcases-page}[LIS Testcase website]. While within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O {url-lis-testcase-files}{step1-filename}
+<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O {url-lis-testcases-data}{step1-filename}
 % tar -xzf {step1-filename} -C .</code></pre>
 </div>
 </div>
@@ -510,7 +510,7 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 </table>
 </div>
 <div class="paragraph">
-<p>In addition to the <code>LISF/</code> repository, your <code>$WORKING_DIR</code> will now contain the following directory and files:</p>
+<p>In addition to the <code>LISF/</code> directory and the three executables, your <code>$WORKING_DIR</code> should now contain the following directory and files:</p>
 </div>
 <table class="tableblock frame-topbot grid-all stripes-odd fit-content">
 <colgroup>
@@ -542,48 +542,48 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 <div class="sect3">
 <h4 id="_the_ldt_configuration_file">The LDT Configuration File</h4>
 <div class="paragraph">
-<p>The LDT configuration file (<code>ldt.config.noah36_params</code>) contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the {url-official-docs}[official documentation,window=_blank].</p>
+<p>The LDT configuration file (<code>ldt.config.noah36_params</code>) contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the {url-lis-official-docs}[official documentation,window=_blank].</p>
 </div>
 <div class="paragraph">
-<p>Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with <code>cat</code> or opening the file with a text editor such as <code>vim</code> or <code>emacs</code>:</p>
+<p>Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with <code>cat</code> or opening the file with a text editor such as <code>vim</code> or <code>emacs</code>. Key elements of the file are highlighted below:</p>
 </div>
 <div id="cat-ldtconfig" class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-shell" data-lang="shell">#Overall driver options
-LDT running mode:                       "LSM parameter processing"
-Processed LSM parameter filename:       ./lis_input.nldas.noah36.d01.nc # <b class="conum">(1)</b>
-LIS number of nests:                    1
-Number of surface model types:          2
-Surface model types:                    "LSM" "Openwater"
-Land surface model:                     "Noah.3.6" <b class="conum">(2)</b>
-Lake model:                             none
-Water fraction cutoff value:            0.5
+LDT running mode:                              "LSM parameter processing"
+Processed LSM parameter filename:              ./lis_input.nldas.noah36.d01.nc # <b class="conum">(1)</b>
+LIS number of nests:                           1
+Number of surface model types:                 2
+Surface model types:                           "LSM" "Openwater"
+Land surface model:                            "Noah.3.6" <b class="conum">(2)</b>
+Lake model:                                     none
+Water fraction cutoff value:                    0.5
 
-Number of met forcing sources:          0
-Met forcing sources:                    "NLDAS2"
-Met spatial transform methods:          "neighbor"  # bilinear
-Topographic correction method (met forcing):  "lapse-rate"
-Temporal interpolation method (met forcing): linear
-LDT diagnostic file:                    ldtlog <b class="conum">(3)</b>
-LDT output directory:                   OUTPUT <b class="conum">(4)</b>
-Undefined value:                       -9999.0
+Number of met forcing sources:                  0
+Met forcing sources:                            "NLDAS2"
+Met spatial transform methods:                  "neighbor"  # bilinear
+Topographic correction method (met forcing):    "lapse-rate"
+Temporal interpolation method (met forcing):    linear
+LDT diagnostic file:                            ldtlog <b class="conum">(3)</b>
+LDT output directory:                           OUTPUT <b class="conum">(4)</b>
+Undefined value:                                -9999.0
 # ...
 #LIS domain <b class="conum">(5)</b>
-Map projection of the LIS domain:      latlon
-Run domain lower left lat:             34.375
-Run domain lower left lon:            -102.875
-Run domain upper right lat:            39.625
-Run domain upper right lon:           -96.125
-Run domain resolution (dx):             0.25
-Run domain resolution (dy):             0.25
+Map projection of the LIS domain:               latlon
+Run domain lower left lat:                      34.375
+Run domain lower left lon:                      -102.875
+Run domain upper right lat:                     39.625
+Run domain upper right lon:                     -96.125
+Run domain resolution (dx):                     0.25
+Run domain resolution (dy):                     0.25
 
 # Parameters
-Landcover data source:          MODIS_Native <b class="conum">(6)</b>
-Landcover classification:       IGBPNCEP
-Landcover file:                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <b class="conum">(6)</b>
-Landcover spatial transform:    tile
-Landcover fill option:          none # Set to none if creating land mask
-Landcover map projection:       latlon
+Landcover data source:                          MODIS_Native <b class="conum">(6)</b>
+Landcover classification:                       IGBPNCEP
+Landcover file:                                 ./INPUT/LS_PARAMETERS/noah_2dparms/igbp.bin <b class="conum">(6)</b>
+Landcover spatial transform:                    tile
+Landcover fill option:                          none # Set to none if creating land mask
+Landcover map projection:                       latlon
 # ...</code></pre>
 </div>
 </div>
@@ -881,14 +881,38 @@ global attributes:
 <div class="sect4">
 <h5 id="_comparing_output">Comparing Output</h5>
 <div class="paragraph">
-<p>To further confirm that LDT ran successfully, compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with <code>target_</code>). Use <code>ncview</code> to compare your <code>lis_input.nldas.noah36.d01.nc</code> with <code>target_lis_input.nldas.noah36.d01.nc</code>.</p>
+<p>To further confirm that LDT ran successfully, you can compare your output with the "target" output included in the input files you downloaded earlier (files or directories beginning with <code>target_</code>). For example, use <a href="https://gitlab.com/remikz/nccmp"><code>nccmp</code></a> to compare your <code>lis_input.nldas.noah36.d01.nc</code> with <code>target_lis_input.nldas.noah36.d01.nc</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-shell" data-lang="shell">% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where the flags enable the following options:
+* <code>m</code>: compare metadata
+* <code>d</code>: compare data
+* <code>f</code>: force comparison to continue after differences found
+* <code>s</code>: report identical files to terminal (by default <code>nccmp</code> runs silently if files are identical)</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Some files may not be identical, but any differences reported should be small.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_wrap_up">Wrap-up</h3>
 <div class="paragraph">
-<p>The LDT parameter processing run generates input parameters and files that LIS requires. You now have all the files needed to continue on to <a href="#sec-step2">[sec-step2]</a>.</p>
+<p>The LDT parameter processing run generates input parameters and files that LIS requires. Your <code>$WORKING_DIR</code> should now contain all the files needed to continue on to <a href="#sec-step2">[sec-step2]</a>.</p>
 </div>
 </div>
 </div>
@@ -896,7 +920,7 @@ global attributes:
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-20 21:36:08 -0400
+Last updated 2020-07-22 23:53:17 -0400
 </div>
 </div>
 </body>

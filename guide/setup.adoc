@@ -3,7 +3,7 @@ anchor:sec-setup[Setup]
 
 :workingdir: lis-public-testcases
 
-WARNING: If you have not set up your computing environment to compile and run the LISF code, review the {url-official-docs}[official documentation,window=_blank].
+WARNING: If you have not set up your computing environment to compile and run the LISF code, review the {url-lis-official-docs}[official documentation,window=_blank].
 
 === Create a working directory
 
@@ -26,7 +26,12 @@ While inside your `$WORKING_DIR` use `git` to clone the LISF repository:
 % git clone https://github.com/NASA-LIS/LISF.git
 ----
 
-Change directories into `LISF/` using `cd LISF`.
+Then, change directories into `LISF/`:
+
+[source,shell]
+----
+% cd LISF
+----
 
 Use `git` again to check out commit {url-rev-commit}[{rev-commit}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
 
@@ -38,9 +43,8 @@ Use `git` again to check out commit {url-rev-commit}[{rev-commit}], a snapshot o
 
 === Configure and Compile the LISF Components
 
-For information about configuration settings and detailed compilation instructions, see the {url-official-docs}[official documentation,window=_blank]. In general, the compilation process for each component is as follows:
+For information about configuration settings and detailed compilation instructions, see the {url-lis-official-docs}[official documentation,window=_blank]. In general, the compilation process for each component is as follows:
 
-.For LDT:
 [#compile-ldt]
 [source,shell,subs="attributes"]
 ----
@@ -53,30 +57,6 @@ For information about configuration settings and detailed compilation instructio
 % cd ..                    # change directories back into LISF
 ----
 
-.For LIS:
-[#compile-lis]
-[source,shell,subs="attributes"]
-----
-% cd lis
-% ./configure
-> # Select compile configuration settings (see Docs)...
-% ./compile
-> # Compilation output...
-% mv LIS ../../            # move executable up into $WORKING_DIR
-% cd ..                    # change directories back into LISF
-----
+Repeat the above process to generate the LIS and LVT executables.
 
-.For LVT:
-[#compile-lvt]
-[source,shell,subs="attributes"]
-----
-% cd lvt
-% ./configure
-> # Select compile configuration settings (see Docs)...
-% ./compile
-> # Compilation output...
-% mv LVT ../../            # move executable up into $WORKING_DIR
-% cd ..                    # change directories back into LISF
-----
-
-Your `$WORKING_DIR` should now contain three executable files: `LDT`, `LIS`, `LVT`. You are ready to run the testcases.
+Change directories back into your `$WORKING_DIR` which should now contain three executable files: `LDT`, `LIS`, `LVT`. You are ready to proceed with <<sec-step1>>.

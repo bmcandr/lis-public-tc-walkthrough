@@ -280,6 +280,7 @@ To further confirm that LDT ran successfully, you can compare your output with t
 ----
 
 Where the flags enable the following options:
+
 * `m`: compare metadata
 * `d`: compare data
 * `f`: force comparison to continue after differences found

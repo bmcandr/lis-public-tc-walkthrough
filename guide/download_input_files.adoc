@@ -1,10 +1,10 @@
 === Download Input Files
 
-The input files are available on the {url-lis-testcases}[LIS Testcase website]. While within your `$WORKING_DIR`, download and unpack the compressed tar file containing the inputs for Step 1:
+The input files downloaded in this walkthrough are available on the {url-lis-testcases-page}[LIS Testcase website]. From within your `$WORKING_DIR`, download and unpack the compressed tar file containing the inputs for {step-label}:
 
 [#download-step1]
 [source,shell,subs="attributes"]
 ----
-% curl -O {url-lis-testcase-files}{download-filename}
+% curl -O {url-lis-testcases-data}{download-filename}
 % tar -xzf {download-filename} -C .
 ----

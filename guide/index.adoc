@@ -6,14 +6,37 @@
 :revnumber: 0.2
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
+:icons: font
 
-:url-lis-github: https://github.com/nasa-lis/lisf.git
+// base directory for all images
+:imagesdir: ./images
+
+// icon attributes
+:favicon: favicons/favicon.png
+
+
+// disable figure captions
+:figure-caption!:
+
+// use default asciidoctor css stylesheet
+//:stylesheet: asciidoctor.css
+
+// source code highlighting engine
+:source-highlighter: highlightjs
+
+// github-related attributes
 :rev-commit: 3625aa3
-:url-rev-commit: https://github.com/NASA-LIS/LISF/commit/3625aa38d36bc36fb88788d66d24b3d7e8dd1693
+:url-lis-github: https://github.com/NASA-LIS/LISF
+:url-rev-commit: {url-lis-github}/commit/{rev-commit}
 
-:url-lis-website: https://lis.gsfc.nasa.gov/
-:url-lis-testcases: https://lis.gsfc.nasa.gov/tests/lis
-:url-lis-testcase-files: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
+// lis urls
+:url-lis-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
+:url-lis-bootcamp: https://bmcandr.github.io/lis-bootcamp
+:url-lis-website: https://lis.gsfc.nasa.gov
+:url-lis-testcases-page: {url-lis-website}/tests/lis
+:url-lis-testcases-data: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
+
+// testcase filenames
 :step1-filename: testcase1_ldt_parms.tgz
 :step2-filename: testcase2_lis_ol.tgz
 :step3-filename: testcase3_ldt_ensrst.tgz
@@ -22,17 +45,7 @@
 :step6-filename: testcase6_lis_da.tgz
 :step7-filename: testcase7_lvt_expcomp.tgz
 
-:url-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
-:url-lis-bootcamp: https://bmcandr.github.io/lis-bootcamp
-
-:imagesdir: ./images
-:favicon: favicons/favicon.png
-:figure-caption!:
-
-:stylesheet: asciidoctor.css
-:icons: font
-:source-highlighter: highlightjs
-
+// step titles
 :title-step1: Step 1: LSM Parameter Processing Run (LDT)
 :title-step2: Step 2: LSM "Open-loop" (OL) Experiment (LIS)
 :title-step3: Step 3: Ensemble Restart File Generation (LDT)

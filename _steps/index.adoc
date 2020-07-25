@@ -1,0 +1,75 @@
+= LIS Public Testcases Walkthrough
+:author_name: Brendan McAndrew
+:author_email: brendan.b.mcandrew@nasa.gov
+:author: {author_name}
+:email: {author_email}
+:revnumber: 0.2
+:revdate: July 18, 2020
+:revremark: Migrated to AsciiDoc
+:icons: font
+:source-highlighter: highlightjs
+
+// icon attributes
+:favicon: favicons/favicon.png
+
+
+// disable figure captions
+:figure-caption!:
+
+// use default asciidoctor css stylesheet
+//:stylesheet: asciidoctor.css
+
+// source code highlighting engine
+
+
+// github-related attributes
+:rev-commit: 3625aa3
+:url-lis-github: https://github.com/NASA-LIS/LISF
+:url-rev-commit: {url-lis-github}/commit/{rev-commit}
+
+// lis urls
+:url-lis-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
+:url-lis-bootcamp: https://bmcandr.github.io/lis-bootcamp
+:url-lis-website: https://lis.gsfc.nasa.gov
+:url-lis-testcases-page: {url-lis-website}/tests/lis
+:url-lis-testcases-data: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
+
+// testcase filenames
+:step1-filename: testcase1_ldt_parms.tgz
+:step2-filename: testcase2_lis_ol.tgz
+:step3-filename: testcase3_ldt_ensrst.tgz
+:step4-filename: testcase4_ldt_lsmcdf.tgz
+:step5-filename: testcase5_ldt_obscdf.tgz
+:step6-filename: testcase6_lis_da.tgz
+:step7-filename: testcase7_lvt_expcomp.tgz
+
+// step titles
+:title-step1: Step 1: LSM Parameter Processing Run (LDT)
+:title-step2: Step 2: LSM "Open-loop" (OL) Experiment (LIS)
+:title-step3: Step 3: Ensemble Restart File Generation (LDT)
+:title-step4: Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)
+:title-step5: Step 5: Generate Observations CDF-based Files (LDT)
+:title-step6: Step 6: LSM Data Assimilation (DA) Experiment (LIS)
+:title-step7: Step 7: Comparison of OL and DA Experiments (LVT)
+
+:toc:
+
+include::intro.adoc[]
+
+include::toc.adoc[]
+
+include::setup.adoc[]
+
+include::step_1.adoc[]
+
+include::step_2.adoc[]
+
+include::step_3.adoc[]
+
+include::step_4.adoc[]
+
+include::step_5.adoc[]
+
+include::step_6.adoc[]
+
+include::step_7.adoc[]

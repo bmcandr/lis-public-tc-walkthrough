@@ -1,0 +1,6 @@
+== {title-step4}
+
+:step-label: Step 4
+:download-filename: {step4-filename}
+
+include::download_input_files.adoc[]

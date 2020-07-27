@@ -7,20 +7,14 @@
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
 :icons: font
-
 // base directory for all images
 :imagesdir: ./images
-
 // icon attributes
-:favicon: favicons/favicon.png
-
-
+:favicon: {imagesdir}/favicons/favicon.ico
 // disable figure captions
 :figure-caption!:
-
 // use default asciidoctor css stylesheet
 //:stylesheet: asciidoctor.css
-
 // source code highlighting engine
 :source-highlighter: highlightjs
 

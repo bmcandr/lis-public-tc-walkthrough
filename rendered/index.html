@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="Brendan McAndrew">
+<link rel="icon" type="image/x-icon" href="./images/favicons/favicon.ico">
 <title>LIS Public Testcases Walkthrough</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -532,7 +533,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="create-workingdir" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% mkdir lis-public-testcases
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% mkdir lis-public-testcases
 % cd lis-public-testcases</code></pre>
 </div>
 </div>
@@ -544,7 +545,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="clone-lis" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% git clone https://github.com/NASA-LIS/LISF.git</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% git clone https://github.com/NASA-LIS/LISF.git</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -552,7 +553,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% cd LISF</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% cd LISF</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -560,7 +561,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="checkout-commit" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% git checkout 3625aa3</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% git checkout 3625aa3</code></pre>
 </div>
 </div>
 </div>
@@ -571,7 +572,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="compile-ldt" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% cd ldt
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% cd ldt
 % ./configure
 > # Select compile configuration settings (see Docs)...
 % ./compile
@@ -642,7 +643,7 @@ These testcases were designed to be run in sequential order and later steps requ
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase1_ldt_parms.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase1_ldt_parms.tgz
 % tar -xzf testcase1_ldt_parms.tgz -C .</code></pre>
 </div>
 </div>
@@ -698,7 +699,7 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 </div>
 <div id="cat-ldtconfig" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">#Overall driver options
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">#Overall driver options
 LDT running mode:                              "LSM parameter processing"
 Processed LSM parameter filename:              ./lis_input.nldas.noah36.d01.nc <i class="conum" data-value="1"></i><b>(1)</b>
 LIS number of nests:                           1
@@ -839,7 +840,7 @@ Landcover map projection:                       latlon
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% ./LDT ldt.config.noah36_params</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config.noah36_params</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -847,7 +848,7 @@ Landcover map projection:                       latlon
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% tail ldtlog.0000
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tail ldtlog.0000
  Param_Check: Estimate conservative interpolated bottom temperature values ...
  [INFO] Reading ISCLSP1 (1.0 deg res) Native Bottom Temperature file:
  ./INPUT/LS_PARAMETERS/noah_2dparms/SOILTEMP.60
@@ -911,7 +912,7 @@ The output filenames for <code>lis_input.d01.nc</code> and <code>ldtlog.0000</co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% ncview lis_input.nldas.noah36.d01.nc</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ncview lis_input.nldas.noah36.d01.nc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -949,7 +950,7 @@ The output filenames for <code>lis_input.d01.nc</code> and <code>ldtlog.0000</co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">...
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">...
 Soil texture spatial transform: mode
 ...</code></pre>
 </div>
@@ -959,7 +960,7 @@ Soil texture spatial transform: mode
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% ./LDT ldt.config.noah36_params</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config.noah36_params</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -987,7 +988,7 @@ Soil texture spatial transform: mode
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% ncdump -h lis_input.nldas.noah36.d01.nc
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ncdump -h lis_input.nldas.noah36.d01.nc
 netcdf lis_input.nldas.noah36.d01 {
 dimensions:
     east_west = 28 ;
@@ -1042,15 +1043,27 @@ global attributes:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Where the flags enable the following options:
-* <code>m</code>: compare metadata
-* <code>d</code>: compare data
-* <code>f</code>: force comparison to continue after differences found
-* <code>s</code>: report identical files to terminal (by default <code>nccmp</code> runs silently if files are identical)</p>
+<p>Where the flags enable the following options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>m</code>: compare metadata</p>
+</li>
+<li>
+<p><code>d</code>: compare data</p>
+</li>
+<li>
+<p><code>f</code>: force comparison to continue after differences found</p>
+</li>
+<li>
+<p><code>s</code>: report identical files to terminal (by default <code>nccmp</code> runs silently if files are identical)</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1087,7 +1100,7 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase2_lis_ol.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase2_lis_ol.tgz
 % tar -xzf testcase2_lis_ol.tgz -C .</code></pre>
 </div>
 </div>
@@ -1107,7 +1120,7 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase3_ldt_ensrst.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase3_ldt_ensrst.tgz
 % tar -xzf testcase3_ldt_ensrst.tgz -C .</code></pre>
 </div>
 </div>
@@ -1127,7 +1140,7 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase4_ldt_lsmcdf.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase4_ldt_lsmcdf.tgz
 % tar -xzf testcase4_ldt_lsmcdf.tgz -C .</code></pre>
 </div>
 </div>
@@ -1147,7 +1160,7 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase5_ldt_obscdf.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase5_ldt_obscdf.tgz
 % tar -xzf testcase5_ldt_obscdf.tgz -C .</code></pre>
 </div>
 </div>
@@ -1167,7 +1180,7 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase6_lis_da.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase6_lis_da.tgz
 % tar -xzf testcase6_lis_da.tgz -C .</code></pre>
 </div>
 </div>
@@ -1187,7 +1200,7 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-shell" data-lang="shell">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase7_lvt_expcomp.tgz
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase7_lvt_expcomp.tgz
 % tar -xzf testcase7_lvt_expcomp.tgz -C .</code></pre>
 </div>
 </div>
@@ -1198,8 +1211,11 @@ Some files may not be identical, but any differences reported should be small.
 <div id="footer">
 <div id="footer-text">
 Version 0.2<br>
-Last updated 2020-07-23 00:24:05 -0400
+Last updated 2020-07-27 11:46:58 -0400
 </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
 </body>
 </html>

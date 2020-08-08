@@ -1,5 +1,4 @@
 == {title-step6}
-anchor:sec-step6[{title-step6}]
 
 :step-label: Step 6
 :download-filename: {step6-filename}

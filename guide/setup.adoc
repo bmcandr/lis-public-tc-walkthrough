@@ -1,5 +1,4 @@
 == Setup
-anchor:sec-setup[Setup]
 
 :workingdir: lis-public-testcases
 
@@ -12,8 +11,8 @@ To begin, create and step into a working directory that you will use throughout 
 [#create-workingdir]
 [source,shell,subs="attributes"]
 ----
-% mkdir {workingdir}
-% cd {workingdir}
+$ mkdir {workingdir}
+$ cd {workingdir}
 ----
 
 === Clone the LISF Source Code Repository
@@ -23,14 +22,14 @@ While inside your `$WORKING_DIR` use `git` to clone the LISF repository:
 [#clone-lis]
 [source,shell,subs="attributes"]
 ----
-% git clone https://github.com/NASA-LIS/LISF.git
+$ git clone https://github.com/NASA-LIS/LISF.git
 ----
 
 Then, change directories into `LISF/`:
 
 [source,shell]
 ----
-% cd LISF
+$ cd LISF
 ----
 
 Use `git` again to check out commit {url-rev-commit}[{rev-commit}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
@@ -38,7 +37,7 @@ Use `git` again to check out commit {url-rev-commit}[{rev-commit}], a snapshot o
 [#checkout-commit]
 [source,shell,subs="attributes"]
 ----
-% git checkout {rev-commit}
+$ git checkout {rev-commit}
 ----
 
 === Configure and Compile the LISF Components
@@ -48,15 +47,15 @@ For information about configuration settings and detailed compilation instructio
 [#compile-ldt]
 [source,shell,subs="attributes"]
 ----
-% cd ldt
-% ./configure
+$ cd ldt
+$ ./configure
 > # Select compile configuration settings (see Docs)...
-% ./compile
+$ ./compile
 > # Compilation output...
-% mv LDT ../../            # move executable up into $WORKING_DIR
-% cd ..                    # change directories back into LISF
+$ mv LDT ../../            # move executable up into $WORKING_DIR
+$ cd ..                    # change directories back into LISF
 ----
 
 Repeat the above process to generate the LIS and LVT executables.
 
-Change directories back into your `$WORKING_DIR` which should now contain three executable files: `LDT`, `LIS`, `LVT`. You are ready to proceed with <<sec-step1>>.
+Change directories back into your `$WORKING_DIR` which should now contain three executable files: `LDT`, `LIS`, `LVT`. You are ready to proceed with <<{title-step1}>>.

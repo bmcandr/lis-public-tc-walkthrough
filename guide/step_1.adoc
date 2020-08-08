@@ -1,5 +1,4 @@
 == {title-step1}
-anchor:sec-step1[{title-step1}]
 
 :step-label: Step 1
 
@@ -16,12 +15,13 @@ NOTE: These testcases were designed to be run in sequential order and later step
 
 ==== Steps to Running LDT
 
-. Compile the LDT source code to generate the LDT executable (see <<sec_setup>>)
+. Compile the LDT source code to generate the LDT executable (see <<_setup>>)
 . Collect input data needed by LDT
 . Modify `ldt.config` file to define runtime configuration settings
 . Run the LDT executable
 . Examine output
 
+[#download-step-1]
 include::download_input_files.adoc[]
 
 WARNING: The compressed tar file for this step is approximately 350MB compressed and 4.1GB uncompressed. Ensure that you have enough storage available before downloading testcase files.
@@ -122,20 +122,20 @@ image::step_1_domain_radar.jpeg[align=center]
 
 === Running LDT - The Parameter Processing Step
 
-We're now ready to run the LDT executable using the input files downloaded above (see <<_download_input_files>>).
+We're now ready to run the LDT executable using the input files downloaded above (see <<download-step-1>>).
 
 In your `$WORKING_DIR`, execute the following command to run LDT:
 
 [source,shell]
 ----
-% ./LDT ldt.config.noah36_params
+$ ./LDT ldt.config.noah36_params
 ----
 
 It should take a couple of minutes to run. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of `ldtlog.0000`. If no errors print to the terminal and the run appears successful, use `tail ldtlog.0000` to look for a confirmation message:
 
 [source,shell]
 ----
-% tail ldtlog.0000
+$ tail ldtlog.0000
  Param_Check: Estimate conservative interpolated bottom temperature values ...
  [INFO] Reading ISCLSP1 (1.0 deg res) Native Bottom Temperature file:
  ./INPUT/LS_PARAMETERS/noah_2dparms/SOILTEMP.60
@@ -172,7 +172,7 @@ Open the LIS input file using `ncview`:
 
 [source,shell]
 ----
-% ncview lis_input.nldas.noah36.d01.nc
+$ ncview lis_input.nldas.noah36.d01.nc
 ----
 
 In the `ncview` window that opens, click on the widget labeled *DOMAINMASK*. A second window will open containing a map of the mask. The domain we are using is a simple rectangle so, as expected, all values are equal to `1`.
@@ -205,7 +205,7 @@ Rerun LDT:
 
 [source,shell]
 ----
-% ./LDT ldt.config.noah36_params
+$ ./LDT ldt.config.noah36_params
 ----
 
 Check the end of `ldtlog.0000` to verify LDT ran successfully. Again, open the LIS input file using `ncview` and click on the *TEXTURE* widget.
@@ -223,7 +223,7 @@ Another program called `ncdump` can be used to directly view the datasets contai
 
 [source,shell]
 ----
-% ncdump -h lis_input.nldas.noah36.d01.nc
+$ ncdump -h lis_input.nldas.noah36.d01.nc
 netcdf lis_input.nldas.noah36.d01 {
 dimensions:
     east_west = 28 ;
@@ -276,7 +276,7 @@ To further confirm that LDT ran successfully, you can compare your output with t
 
 [source,shell]
 ----
-% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc
+$ nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc
 ----
 
 Where the flags enable the following options:
@@ -290,4 +290,4 @@ NOTE: Some files may not be identical, but any differences reported should be sm
 
 === Wrap-up
 
-The LDT parameter processing run generates input parameters and files that LIS requires. Your `$WORKING_DIR` should now contain all the files needed to continue on to <<sec-step2>>.
+The LDT parameter processing run generates input parameters and files that LIS requires. Your `$WORKING_DIR` should now contain all the files needed to continue on to <<{title-step2}>>.

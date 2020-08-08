@@ -32,12 +32,12 @@ Then, change directories into `LISF/`:
 % cd LISF
 ----
 
-Use `git` again to check out commit {url-rev-commit}[{rev-commit}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
+Use `git` again to check out commit {url-rev-commit}[{compatible-commit-id}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
 
 [#checkout-commit]
 [source,shell,subs="attributes"]
 ----
-% git checkout {rev-commit}
+% git checkout {compatible-commit-id}
 ----
 
 === Configure and Compile the LISF Components

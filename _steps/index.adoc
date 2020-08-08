@@ -7,25 +7,12 @@
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
 :icons: font
-:source-highlighter: highlightjs
+:source-highlighter: highlightjs        // source code highlighting engine
+:favicon: {imagesdir}/favicons/favicon.png          // favicon location
+:figure-caption!:                       // disable figure captions
 
-// icon attributes
-:favicon: favicons/favicon.png
-
-
-// disable figure captions
-:figure-caption!:
-
-// use default asciidoctor css stylesheet
-//:stylesheet: asciidoctor.css
-
-// source code highlighting engine
-
-
-// github-related attributes
-:rev-commit: 3625aa3
-:url-lis-github: https://github.com/NASA-LIS/LISF
-:url-rev-commit: {url-lis-github}/commit/{rev-commit}
+// github commit known to be compatible with this walkthrough
+:compaitble-commit-id: 3625aa3
 
 // lis urls
 :url-lis-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
@@ -33,6 +20,8 @@
 :url-lis-website: https://lis.gsfc.nasa.gov
 :url-lis-testcases-page: {url-lis-website}/tests/lis
 :url-lis-testcases-data: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
+:url-lis-github: https://github.com/NASA-LIS/LISF
+:url-rev-commit: {url-lis-github}/commit/{compatible-commit-id}
 
 // step titles
 :title-step1: Step 1: LSM Parameter Processing Run (LDT)

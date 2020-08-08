@@ -481,28 +481,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#sec-setup">Setup</a></p>
+<p><a href="#_setup">Setup</a></p>
 </li>
 <li>
-<p><a href="#sec-step1">Step 1: LSM Parameter Processing Run (LDT)</a></p>
+<p><a href="#_step_1_lsm_parameter_processing_run_ldt">Step 1: LSM Parameter Processing Run (LDT)</a></p>
 </li>
 <li>
-<p><a href="#sec-step2">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a></p>
+<p><a href="#_step_2_lsm_open_loop_ol_experiment_lis">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a></p>
 </li>
 <li>
-<p><a href="#sec-step3">Step 3: Ensemble Restart File Generation (LDT)</a></p>
+<p><a href="#_step_3_ensemble_restart_file_generation_ldt">Step 3: Ensemble Restart File Generation (LDT)</a></p>
 </li>
 <li>
-<p><a href="#sec-step4">Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)</a></p>
+<p><a href="#_step_4_generate_lsm_ol_cumulative_density_function_based_files_ldt">Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)</a></p>
 </li>
 <li>
-<p><a href="#sec-step5">Step 5: Generate Observations CDF-based Files (LDT)</a></p>
+<p><a href="#_step_5_generate_observations_cdf_based_files_ldt">Step 5: Generate Observations CDF-based Files (LDT)</a></p>
 </li>
 <li>
-<p><a href="#sec-step6">Step 6: LSM Data Assimilation (DA) Experiment (LIS)</a></p>
+<p><a href="#_step_6_lsm_data_assimilation_da_experiment_lis">Step 6: LSM Data Assimilation (DA) Experiment (LIS)</a></p>
 </li>
 <li>
-<p><a href="#sec-step7">Step 7: Comparison of OL and DA Experiments (LVT)</a></p>
+<p><a href="#_step_7_comparison_of_ol_and_da_experiments_lvt">Step 7: Comparison of OL and DA Experiments (LVT)</a></p>
 </li>
 </ul>
 </div>
@@ -511,9 +511,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_setup">Setup</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-setup"></a></p>
-</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -533,8 +530,8 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="create-workingdir" class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% mkdir lis-public-testcases
-% cd lis-public-testcases</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ mkdir lis-public-testcases
+$ cd lis-public-testcases</code></pre>
 </div>
 </div>
 </div>
@@ -545,7 +542,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="clone-lis" class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% git clone https://github.com/NASA-LIS/LISF.git</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ git clone https://github.com/NASA-LIS/LISF.git</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -553,7 +550,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% cd LISF</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ cd LISF</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -561,7 +558,7 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="checkout-commit" class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% git checkout 3625aa3</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ git checkout 3625aa3</code></pre>
 </div>
 </div>
 </div>
@@ -572,20 +569,20 @@ If you have not set up your computing environment to compile and run the LISF co
 </div>
 <div id="compile-ldt" class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% cd ldt
-% ./configure
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ cd ldt
+$ ./configure
 > # Select compile configuration settings (see Docs)...
-% ./compile
+$ ./compile
 > # Compilation output...
-% mv LDT ../../            # move executable up into $WORKING_DIR
-% cd ..                    # change directories back into LISF</code></pre>
+$ mv LDT ../../            # move executable up into $WORKING_DIR
+$ cd ..                    # change directories back into LISF</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>Repeat the above process to generate the LIS and LVT executables.</p>
 </div>
 <div class="paragraph">
-<p>Change directories back into your <code>$WORKING_DIR</code> which should now contain three executable files: <code>LDT</code>, <code>LIS</code>, <code>LVT</code>. You are ready to proceed with <a href="#sec-step1">Step 1: LSM Parameter Processing Run (LDT)</a>.</p>
+<p>Change directories back into your <code>$WORKING_DIR</code> which should now contain three executable files: <code>LDT</code>, <code>LIS</code>, <code>LVT</code>. You are ready to proceed with <a href="#_step_1_lsm_parameter_processing_run_ldt">Step 1: LSM Parameter Processing Run (LDT)</a>.</p>
 </div>
 </div>
 </div>
@@ -593,9 +590,6 @@ If you have not set up your computing environment to compile and run the LISF co
 <div class="sect1">
 <h2 id="_step_1_lsm_parameter_processing_run_ldt">Step 1: LSM Parameter Processing Run (LDT)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step1"></a></p>
-</div>
 <div class="sect2">
 <h3 id="_overview">Overview</h3>
 <div class="paragraph">
@@ -618,7 +612,7 @@ These testcases were designed to be run in sequential order and later steps requ
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Compile the LDT source code to generate the LDT executable (see <a href="#sec_setup">[sec_setup]</a>)</p>
+<p>Compile the LDT source code to generate the LDT executable (see <a href="#_setup">Setup</a>)</p>
 </li>
 <li>
 <p>Collect input data needed by LDT</p>
@@ -637,7 +631,7 @@ These testcases were designed to be run in sequential order and later steps requ
 </div>
 </div>
 <div class="sect2">
-<h3 id="_download_input_files">Download Input Files</h3>
+<h3 id="download-step-1">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
 </div>
@@ -662,10 +656,13 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 <div class="paragraph">
 <p>In addition to the <code>LISF/</code> directory and the three executables, your <code>$WORKING_DIR</code> should now contain the following directory and files:</p>
 </div>
-<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<div class="paragraph">
+<p>[$autowidth]</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col>
-<col>
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
@@ -773,18 +770,19 @@ Landcover map projection:                       latlon
 <div class="paragraph">
 <p>As you may have noticed, these testcases utilize NOAA/NCAR&#8217;s Noah LSM, v3.6. The input parameters selected in <code>ldt.config.noah36_params</code> include:</p>
 </div>
-<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<div class="paragraph">
+<p>[$autowidth]</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col>
-<col>
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter</th>
-<th class="tableblock halign-left valign-top">Dataset</th>
-</tr>
-</thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parameter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataset</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Landcover</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MODIS-based IGBP landcover map (~ 1 km, NOAA)</p></td>
@@ -833,14 +831,14 @@ Landcover map projection:                       latlon
 <div class="sect2">
 <h3 id="_running_ldt_the_parameter_processing_step">Running LDT - The Parameter Processing Step</h3>
 <div class="paragraph">
-<p>We&#8217;re now ready to run the LDT executable using the input files downloaded above (see <a href="#_download_input_files">Download Input Files</a>).</p>
+<p>We&#8217;re now ready to run the LDT executable using the input files downloaded above (see <a href="#download-step-1">Download Input Files</a>).</p>
 </div>
 <div class="paragraph">
 <p>In your <code>$WORKING_DIR</code>, execute the following command to run LDT:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config.noah36_params</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ ./LDT ldt.config.noah36_params</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -848,7 +846,7 @@ Landcover map projection:                       latlon
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tail ldtlog.0000
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ tail ldtlog.0000
  Param_Check: Estimate conservative interpolated bottom temperature values ...
  [INFO] Reading ISCLSP1 (1.0 deg res) Native Bottom Temperature file:
  ./INPUT/LS_PARAMETERS/noah_2dparms/SOILTEMP.60
@@ -870,10 +868,13 @@ Landcover map projection:                       latlon
 <div class="paragraph">
 <p>The following files are typically generated by an LDT parameter processing run:</p>
 </div>
-<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<div class="paragraph">
+<p>[$autowidth]</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col>
-<col>
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
@@ -912,7 +913,7 @@ The output filenames for <code>lis_input.d01.nc</code> and <code>ldtlog.0000</co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ncview lis_input.nldas.noah36.d01.nc</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ ncview lis_input.nldas.noah36.d01.nc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -960,7 +961,7 @@ Soil texture spatial transform: mode
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config.noah36_params</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ ./LDT ldt.config.noah36_params</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -988,7 +989,7 @@ Soil texture spatial transform: mode
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ncdump -h lis_input.nldas.noah36.d01.nc
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ ncdump -h lis_input.nldas.noah36.d01.nc
 netcdf lis_input.nldas.noah36.d01 {
 dimensions:
     east_west = 28 ;
@@ -1043,7 +1044,7 @@ global attributes:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">$ nccmp -mdfs lis_input.nldas.noah36.d01.nc target_lis_input.nldas.noah36.d01.nc</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1082,7 +1083,7 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect2">
 <h3 id="_wrap_up">Wrap-up</h3>
 <div class="paragraph">
-<p>The LDT parameter processing run generates input parameters and files that LIS requires. Your <code>$WORKING_DIR</code> should now contain all the files needed to continue on to <a href="#sec-step2">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a>.</p>
+<p>The LDT parameter processing run generates input parameters and files that LIS requires. Your <code>$WORKING_DIR</code> should now contain all the files needed to continue on to <a href="#_step_2_lsm_open_loop_ol_experiment_lis">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</a>.</p>
 </div>
 </div>
 </div>
@@ -1090,11 +1091,8 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect1">
 <h2 id="_step_2_lsm_open_loop_ol_experiment_lis">Step 2: LSM "Open-loop" (OL) Experiment (LIS)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step2"></a></p>
-</div>
 <div class="sect2">
-<h3 id="_download_input_files_2">Download Input Files</h3>
+<h3 id="_download_input_files">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 2:</p>
 </div>
@@ -1110,11 +1108,8 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect1">
 <h2 id="_step_3_ensemble_restart_file_generation_ldt">Step 3: Ensemble Restart File Generation (LDT)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step3"></a></p>
-</div>
 <div class="sect2">
-<h3 id="_download_input_files_3">Download Input Files</h3>
+<h3 id="_download_input_files_2">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 3:</p>
 </div>
@@ -1130,11 +1125,8 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect1">
 <h2 id="_step_4_generate_lsm_ol_cumulative_density_function_based_files_ldt">Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step4"></a></p>
-</div>
 <div class="sect2">
-<h3 id="_download_input_files_4">Download Input Files</h3>
+<h3 id="_download_input_files_3">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 4:</p>
 </div>
@@ -1150,11 +1142,8 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect1">
 <h2 id="_step_5_generate_observations_cdf_based_files_ldt">Step 5: Generate Observations CDF-based Files (LDT)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step5"></a></p>
-</div>
 <div class="sect2">
-<h3 id="_download_input_files_5">Download Input Files</h3>
+<h3 id="_download_input_files_4">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 5:</p>
 </div>
@@ -1170,11 +1159,8 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect1">
 <h2 id="_step_6_lsm_data_assimilation_da_experiment_lis">Step 6: LSM Data Assimilation (DA) Experiment (LIS)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step6"></a></p>
-</div>
 <div class="sect2">
-<h3 id="_download_input_files_6">Download Input Files</h3>
+<h3 id="_download_input_files_5">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 6:</p>
 </div>
@@ -1190,11 +1176,8 @@ Some files may not be identical, but any differences reported should be small.
 <div class="sect1">
 <h2 id="_step_7_comparison_of_ol_and_da_experiments_lvt">Step 7: Comparison of OL and DA Experiments (LVT)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><a id="sec-step7"></a></p>
-</div>
 <div class="sect2">
-<h3 id="_download_input_files_7">Download Input Files</h3>
+<h3 id="_download_input_files_6">Download Input Files</h3>
 <div class="paragraph">
 <p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 7:</p>
 </div>
@@ -1211,7 +1194,7 @@ Some files may not be identical, but any differences reported should be small.
 <div id="footer">
 <div id="footer-text">
 Version 0.2<br>
-Last updated 2020-07-27 11:46:58 -0400
+Last updated 2020-07-27 12:47:09 -0400
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css">

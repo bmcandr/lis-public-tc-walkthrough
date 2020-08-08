@@ -7,7 +7,6 @@
 :input-filesize-unpacked: 4.1GB
 :ldtconfig-filename: ldt.config.noah36_params
 
-
 :url-domain-geojson: https://github.com/bmcandr/lis-public-testcases/blob/master/guide/domain.geojson
 
 === Overview

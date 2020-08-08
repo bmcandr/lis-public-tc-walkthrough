@@ -2,8 +2,11 @@
 
 :step-label: Step 1
 
-:download-filename: {step1-filename}
+:download-filename: testcase1_ldt_parms.tgz
+:input-filesize-compressed: 350MB
+:input-filesize-unpacked: 4.1GB
 :ldtconfig-filename: ldt.config.noah36_params
+
 
 :url-domain-geojson: https://github.com/bmcandr/lis-public-testcases/blob/master/guide/domain.geojson
 
@@ -23,8 +26,6 @@ NOTE: These testcases were designed to be run in sequential order and later step
 
 [#download-step-1]
 include::download_input_files.adoc[]
-
-WARNING: The compressed tar file for this step is approximately 350MB compressed and 4.1GB uncompressed. Ensure that you have enough storage available before downloading testcase files.
 
 In addition to the `LISF/` directory and the three executables, your `$WORKING_DIR` should now contain the following directory and files:
 

@@ -1,6 +1,8 @@
 == {title-step2}
 
 :step-label: Step 2
-:download-filename: {step2-filename}
+:download-filename: testcase2_lis_ol.tgz
+:input-filesize-compressed: 67MB
+:input-filesize-unpacked: 250MB
 
 include::download_input_files.adoc[]

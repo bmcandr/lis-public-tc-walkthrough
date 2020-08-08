@@ -1,6 +1,8 @@
 == {title-step5}
 
 :step-label: Step 5
-:download-filename: {step5-filename}
+:download-filename: testcase5_ldt_obscdf.tgz
+:input-filesize-compressed: ???
+:input-filesize-unpacked: ???
 
 include::download_input_files.adoc[]

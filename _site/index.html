@@ -205,9 +205,9 @@ These testcases were designed to be run in sequential order and later steps requ
 </div>
 </div>
 <div class="sect2">
-<h3 id="download-step-1">Download Input Files</h3>
+<h3 id="download-step-1">Download Input and Target Files</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 1:</p>
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 1:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -401,7 +401,7 @@ Landcover map projection:                       latlon
 <div class="sect2">
 <h3 id="running_ldt_the_parameter_processing_step">Running LDT - The Parameter Processing Step</h3>
 <div class="paragraph">
-<p>We&#8217;re now ready to run the LDT executable using the input files downloaded above (see <a href="#download-step-1">Download Input Files</a>).</p>
+<p>We&#8217;re now ready to run the LDT executable using the input files downloaded above (see <a href="#download-step-1">Download Input and Target Files</a>).</p>
 </div>
 <div class="paragraph">
 <p>In your <code>$WORKING_DIR</code>, execute the following command to run LDT:</p>
@@ -471,7 +471,7 @@ The output filenames for <code>lis_input.d01.nc</code> and <code>ldtlog.0000</co
 </table>
 </div>
 <div class="sect4">
-<h5 id="exploring_the_lis_configuration_file">Exploring the LIS Configuration File</h5>
+<h5 id="the_lis_configuration_file">The LIS Configuration File</h5>
 <div class="paragraph">
 <p>The contents of the LIS input file produced by LDT can be examined visually using a command-line program such as <a href="http://meteora.ucsd.edu/~pierce/ncview_home_page.html" target="_blank" rel="noopener"><code>ncview</code></a> or a desktop application like NASA&#8217;s <a href="https://www.giss.nasa.gov/tools/panoply/" target="_blank" rel="noopener">Panoply</a>. For this walkthrough we will be using <code>ncview</code>.</p>
 </div>
@@ -687,9 +687,9 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 </div>
 <div class="sect2">
-<h3 id="download_input_files">Download Input Files</h3>
+<h3 id="download_input_and_target_files">Download Input and Target Files</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 2:</p>
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 2:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -812,7 +812,7 @@ The compressed tar file for this step is approximately 67MB compressed and 250MB
 </div>
 </div>
 <div class="sect3">
-<h4 id="the_lis_configuration_file">The LIS Configuration File</h4>
+<h4 id="the_lis_configuration_file_2">The LIS Configuration File</h4>
 <div class="paragraph">
 <p>The main LIS configuration file (<code>lis.config_noah36_ol</code>) is where runtime options and filepaths used during the run are defined. These include:</p>
 </div>
@@ -929,9 +929,54 @@ The compressed tar file for this step is approximately 67MB compressed and 250MB
 <h2 id="step_3_ensemble_restart_file_generation_ldt">Step 3: Ensemble Restart File Generation (LDT)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="download_input_files_2">Download Input Files</h3>
+<h3 id="overview_3">Overview</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 3:</p>
+<p>In Step 1, you used LDT to perform parameter processing for the Noah-3.6 land surface model (LSM) to generate a Noah-3.6 parameter input file to be used by LIS (and LVT). In addition to parameter processing, LDT can be used to <em>upscale</em> and <em>downscale</em> ensembles.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Upscale:</strong> generate a multi-member ensemble restart file from a single-member restart file</p>
+</div>
+<div class="paragraph">
+<p><strong>Downscale:</strong> generate a single-member ensemble restart file from a multi-member restart file</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In this step you will learn how to use LDT to expand a single-member <strong>restart</strong> file generated by the LIS open-loop (OL) case in Step 2 into a restart file that contains an ensemble of size <em>N</em> (user specified). The ensemble restart file generated in this step will be used in Step 6 to <strong>initialize</strong> the LIS data assimilation (DA) run.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="quoteblock">
+<blockquote>
+<strong>Restart files</strong> contain all of the initial condition information necessary to restart from a previous simulation.
+</blockquote>
+<div class="attribution">
+&#8212; http://www.cesm.ucar.edu/models/ccsm2.0/csim/UsersGuide/ice_usrdoc/node21.html
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="download_input_and_target_files_2">Download Input and Target Files</h3>
+<div class="paragraph">
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 3:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -951,6 +996,121 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>The following files and directories were added to your common working directory, <code>$WORKING_DIR</code>:</p>
+</div>
+<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DA_ensrst/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A directory containing the files below</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ldt.config</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The LDT config file for this step</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_ldtlog.0000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT log file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_LIS_EnRST_NOAH36_201801010000.d01.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT-generated ensemble restart file ("EnRST") to start the Noah LSM DA run in Step 6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="the_ldt_configuration_file_2">The LDT Configuration File</h3>
+<div class="paragraph">
+<p>Review the contents of <code>DA_ensrst/ldt.config</code> to view the configuration settings used for this step:</p>
+</div>
+<div id="cat-ldtconfig" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">LDT running mode:                               "Ensemble restart processing"
+Processed LSM parameter filename:               ./lis_input.nldas.noah36.d01.nc
+...
+LIS restart source:                             "LSM"
+Ensemble restart generation mode:               "upscale" <i class="conum" data-value="1"></i><b>(1)</b>
+Input restart filename:                         ../OL_OUTPUT/SURFACEMODEL/201801/LIS_RST_NOAH36_201801010000.d01.nc
+Number of ensembles per tile (input restart):   1 <i class="conum" data-value="2"></i><b>(2)</b>
+Number of ensembles per tile (output restart):  12 <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This entry tells LDT how to process the <em>ensemble</em> file</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Size of input ensemble restart file, in this case a single instance of model states</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Size of upscaled multi-member ensemble restart file, in this case 12 members</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In this walkthrough we are using the Noah.3.6 LSM, but these settings can be used to upscale/downscale routing models as well. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">LIS restart source:                             "Routing"
+Ensemble restart generation mode:               "upscale"
+Input restart filename:                         ./LIS_RST_HYMAP_router_201801010000.d01.bin
+Output restart filename:                        ./ensrst.bin
+Number of ensembles per tile (input restart):   1
+Number of ensembles per tile (output restart):  12</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="running_ldt_generate_ensemble_restart_file">Running LDT -  Generate Ensemble Restart File</h3>
+<div class="paragraph">
+<p>You&#8217;re now ready to run LDT:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy your compiled <strong><em>LDT</em></strong> executable into <code>$WORKING_DIR/DA_ensrst</code></p>
+</li>
+<li>
+<p>Run the <strong><em>LDT</em></strong> executable using the provided <code>ldt.config</code> file:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal and the run appears successful, use <code>tail ldtlog.0000</code> to look for a confirmation message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs"># Insert example output of tail ldtlog.0000</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ldt_output_files_2">LDT Output Files</h3>
+<div class="paragraph">
+<p>During this run, LDT produced one output file named <code>LIS_EnRST_NOAH36_201801010000.d01.nc</code> and placed it into the <code>OL_OUTPUT/SURFACEMODEL</code> directory in your <code>$WORKING_DIR</code>.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>ncview</code>, Panoply, Matlab or any other viewing package that supports NetCDF files. Compare what you see with the <em>target</em> version of this output file located in the <code>DA_ensrst</code> directory. You can also use <code>nccmp</code> to directly compare the contents of the file created by your LDT run and the target.</p>
+</div>
+<div class="paragraph">
+<p><mark>ADD EXAMPLES HERE</mark></p>
+</div>
 </div>
 </div>
 </div>
@@ -958,9 +1118,48 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <h2 id="step_4_generate_lsm_ol_cumulative_density_function_based_files_ldt">Step 4: Generate LSM OL Cumulative Density Function-based Files (LDT)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="download_input_files_3">Download Input Files</h3>
+<h3 id="overview_4">Overview</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 4:</p>
+<p>In the previous step you used LDT used to expand a single-member ensemble restart file into a multi-member restart file containing 12 ensemble members. In this step you will use LDT again to generate files that support scaling and bias-correction between the model open-loop states and satellite observations that will be assimilated in Step 6. LDT supports the generation of domain and statistical moment inputs for estimated cumulative distribution functions (CDFs), which can be used when performing the scaling necessary to assimilate certain observations in LIS. The model-based CDF files generated in this step, and those generated in Step 5 for the satellite observations, will be incorporated in the data assimilation run demonstrated in Step 6.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">CDF-based Scaling Background</div>
+<div class="paragraph">
+<p>CDF-based scaling is used to match the CDF of a given observation to that of the model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/step_4_CDF_example.png" alt="step 4 CDF example" width="60%">
+</div>
+</div>
+<div class="paragraph">
+<p>CDF generation and CDF-based scaling are performed separately for each grid point. CDF-based scaling corrects all moments of the distribution regardless of its shape and requires enough sampling density to derive these scaling parameters. By comparison, normal deviate-based scaling corrects the first and second moments (e.g., the mean and variance).</p>
+</div>
+<div class="paragraph">
+<p>For more information on this topic:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Reichle, R. H., and Koster, R. D. (2004), Bias reduction in short records of satellite soil moisture, <em>Geophys. Res. Lett.</em>, 31, L19501, <a href="https://doi.org/10.1029/2004GL020938">doi:10.1029/2004GL020938</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="download_input_and_target_files_3">Download Input and Target Files</h3>
+<div class="paragraph">
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 4:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -980,6 +1179,156 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>The following files and directories were added to your common working directory <code>$WORKING_DIR</code>:</p>
+</div>
+<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DA_proc_LSM/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A directory containing the files below</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ldt.config.noah36_cdf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The LDT config file for this step</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_ldtlog.0000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT log file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_cdf_noah36_domain.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT-generated Noah LSM <em>domain</em> file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_cdf_noah36.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT-generated Noah LSM <em>CDF</em> file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>noah36_cdf.xdf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GrADS description file for viewing <code>*cdf_noah36.nc</code> output and target files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>plot_noah36_cdf.gs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GrADS script that plots an X-Y plot of <code>*cdf_noah36.nc</code> output and target files</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="the_ldt_configuration_file_3">The LDT Configuration File</h3>
+<div class="paragraph">
+<p>Review the contents of <code>DA_proc_LSM/ldt.config.noah36_cdf</code> to view the configuration settings used for this step:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">LDT running mode: "DA preprocessing" <i class="conum" data-value="1"></i><b>(1)</b>
+...
+DA preprocessing method:            "CDF generation"
+DA observation source:              "LIS LSM soil moisture"
+Name of the preprocessed DA file:   "cdf_noah36" <i class="conum" data-value="2"></i><b>(2)</b>
+Apply anomaly correction to obs:    0
+Temporal resolution of CDFs:        "yearly"
+Number of bins to use in the CDF:   100
+Observation count threshold:        30
+Temporal averaging interval:        "1da"
+Apply external mask:                0
+External mask director:             none
+...
+LIS soil moisture output model name:        "Noah.3.6"
+LIS soil moisture output directory:         ../OL_OUTPUT/
+LIS soil moisture output format:            "netcdf"
+LIS soil moisture output methodology:       "2d gridspace"
+LIS soil moisture output naming style:      "3 level hierarchy"
+LIS soil moisture output nest index:        1
+LIS soil moisture output map projection:    "latlon"
+LIS soil moisture domain lower left lat:    34.375 <i class="conum" data-value="3"></i><b>(3)</b>
+LIS soil moisture domain upper right lat:   39.625
+LIS soil moisture domain lower left lon:    -102.875
+LIS soil moisture domain upper right lon:   -96.125
+LIS soil moisture domain resolution (dx):   0.25
+LIS soil moisture domain resolution (dy):   0.25</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The "DA preprocessing" mode is used to generate the observation domain and scaling parameters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>A successful run will generate a domain file (i.e., <code>cdf_noah36_domain.nc</code>) and a LSM CDF file (e.g., <code>cdf_noah36.nc</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The LDT run domain should reflect the intended observation grid (projection and resolution). <em>Note that this can differ from the model resolution and projection.</em></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="running_ldt_da_preprocessing_step">Running LDT - DA Preprocessing Step</h3>
+<div class="paragraph">
+<p>You&#8217;re now ready to run LDT:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy your compiled <strong><em>LDT</em></strong> executable into <code>$WORKING_DIR/DA_proc_LSM</code></p>
+</li>
+<li>
+<p>Run the <strong><em>LDT</em></strong> executable using the provided <code>ldt.config</code> file:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config.noah36_cdf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The run should take a few minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal and the run appears successful, use <code>tail ldtlog.0000</code> to look for a confirmation message:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs"># Insert example output of tail ldtlog.0000</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ldt_output_files_3">LDT Output Files</h3>
+<div class="paragraph">
+<p>During this run, LDT produced a domain file, <code>cdf_noah36_domain.nc</code>, and a LSM CDF file,  <code>cdf_noah36.nc</code>, and placed them into the <code>OL_OUTPUT</code> directory in your <code>$WORKING_DIR</code>.</p>
+</div>
+<div class="paragraph">
+<p>Use <code>ncview</code>, Panoply, Matlab or any other viewing package that supports NetCDF files. Compare what you see with the <em>target</em> version of this output file located in the <code>DA_ensrst</code> directory. You can also use <code>nccmp</code> to directly compare the contents of the file created by your LDT run and the target.</p>
+</div>
+<div class="paragraph">
+<p><mark>ADD EXAMPLES HERE</mark></p>
+</div>
+<div class="openblock float-group">
+<div class="content">
+<div class="imageblock right">
+<div class="content">
+<img src="/images/step_4_output_fig.png" alt="step 4 output fig">
+</div>
+</div>
+<div class="paragraph">
+<p>If GrADS is installed you may also use the provided GrADS descriptor files to plot the output shown on the right.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% grads -l
+% plot_noah36_cdf.gs</code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -987,9 +1336,9 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <h2 id="step_5_generate_observations_cdf_based_files_ldt">Step 5: Generate Observations CDF-based Files (LDT)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="download_input_files_4">Download Input Files</h3>
+<h3 id="download_input_and_target_files_4">Download Input and Target Files</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 5:</p>
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 5:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1016,9 +1365,9 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <h2 id="step_6_lsm_data_assimilation_da_experiment_lis">Step 6: LSM Data Assimilation (DA) Experiment (LIS)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="download_input_files_5">Download Input Files</h3>
+<h3 id="download_input_and_target_files_5">Download Input and Target Files</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 6:</p>
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 6:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">
@@ -1045,9 +1394,9 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <h2 id="step_7_comparison_of_ol_and_da_experiments_lvt">Step 7: Comparison of OL and DA Experiments (LVT)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="download_input_files_6">Download Input Files</h3>
+<h3 id="download_input_and_target_files_6">Download Input and Target Files</h3>
 <div class="paragraph">
-<p>The input files downloaded in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs for Step 7:</p>
+<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 7:</p>
 </div>
 <div id="download-step1" class="listingblock">
 <div class="content">

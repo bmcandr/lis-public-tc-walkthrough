@@ -31,10 +31,10 @@ The following files and directories were added to your common working directory,
 [cols="2*",frame=topbot,stripes=odd]
 [%autowidth]
 |===
-|`DA_ensrst/`                                               |A directory containing the files below
-|`DA_ensrst/ldt.config`                                     |The LDT config file for this step
-|`DA_ensrst/target_ldtlog.0000`                             |The target LDT log file
-|`DA_ensrst/target_LIS_EnRST_NOAH36_201801010000.d01.nc`    |The target LDT-generated ensemble restart file ("EnRST") to start the Noah LSM DA run in Step 6
+|`DA_ensrst/`                                     |A directory containing the files below
+|`ldt.config`                                     |The LDT config file for this step
+|`target_ldtlog.0000`                             |The target LDT log file
+|`target_LIS_EnRST_NOAH36_201801010000.d01.nc`    |The target LDT-generated ensemble restart file ("EnRST") to start the Noah LSM DA run in Step 6
 |===
 
 === The LDT Configuration File

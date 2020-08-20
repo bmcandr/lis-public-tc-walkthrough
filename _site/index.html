@@ -206,15 +206,6 @@ These testcases were designed to be run in sequential order and later steps requ
 </div>
 <div class="sect2">
 <h3 id="download-step-1">Download Input and Target Files</h3>
-<div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 1:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase1_ldt_parms.tgz
-% tar -xzf testcase1_ldt_parms.tgz -C .</code></pre>
-</div>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -222,10 +213,19 @@ These testcases were designed to be run in sequential order and later steps requ
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately 350MB compressed and 4.1GB unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>350MB</strong> compressed and <strong>4.1GB</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 1:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase1_ldt_parms.tgz
+% tar -xzf testcase1_ldt_parms.tgz -C .</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>In addition to the <code>LISF/</code> directory and the three executables, your <code>$WORKING_DIR</code> should now contain the following directory and files:</p>
@@ -265,7 +265,7 @@ The compressed tar file for this step is approximately 350MB compressed and 4.1G
 <div class="paragraph">
 <p>Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with <code>cat</code> or opening the file with a text editor such as <code>vim</code> or <code>emacs</code>. Key elements of the file are highlighted below:</p>
 </div>
-<div id="cat-ldtconfig" class="listingblock">
+<div id="cat-ldt-config" class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">#Overall driver options
 LDT running mode:                              "LSM parameter processing"
@@ -401,10 +401,17 @@ Landcover map projection:                       latlon
 <div class="sect2">
 <h3 id="running_ldt_the_parameter_processing_step">Running LDT - The Parameter Processing Step</h3>
 <div class="paragraph">
-<p>We&#8217;re now ready to run the LDT executable using the input files downloaded above (see <a href="#download-step-1">Download Input and Target Files</a>).</p>
+<p>You&#8217;re now ready to run LDT:</p>
 </div>
-<div class="paragraph">
-<p>In your <code>$WORKING_DIR</code>, execute the following command to run LDT:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy your compiled <strong><em>LDT</em></strong> executable into <code>$WORKING_DIR/</code></p>
+</li>
+<li>
+<p>Run the <strong><em>LDT</em></strong> executable using the provided <code>ldt.config.noah36_params</code> file:</p>
+</li>
+</ol>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -412,18 +419,12 @@ Landcover map projection:                       latlon
 </div>
 </div>
 <div class="paragraph">
-<p>It should take a couple of minutes to run. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal and the run appears successful, use <code>tail ldtlog.0000</code> to look for a confirmation message:</p>
+<p>The run should take a few minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal, verify that the run completed successfully by checking for the following confirmation at the end of the <code>ldtlog.0000</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tail ldtlog.0000
- Param_Check: Estimate conservative interpolated bottom temperature values ...
- [INFO] Reading ISCLSP1 (1.0 deg res) Native Bottom Temperature file:
- ./INPUT/LS_PARAMETERS/noah_2dparms/SOILTEMP.60
- #Regridding: Applying budget-bilinear interp to input parameter
- Checking/filling mask values for: TBOT
- Performing lapse-rate correction to Tbot output.
- -- Finished writing parameters to netcdf output file --
+...
  --------------------------------
   Finished LDT run
  --------------------------------</code></pre>
@@ -688,15 +689,6 @@ Some files may not be identical, but any differences reported should be small.
 </div>
 <div class="sect2">
 <h3 id="download_input_and_target_files">Download Input and Target Files</h3>
-<div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 2:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase2_lis_ol.tgz
-% tar -xzf testcase2_lis_ol.tgz -C .</code></pre>
-</div>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -704,10 +696,19 @@ Some files may not be identical, but any differences reported should be small.
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately 67MB compressed and 250MB unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>67MB</strong> compressed and <strong>250MB</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 2:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase2_lis_ol.tgz
+% tar -xzf testcase2_lis_ol.tgz -C .</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The following files and directories were added to your common working directory, <code>$WORKING_DIR</code>:</p>
@@ -975,15 +976,6 @@ The compressed tar file for this step is approximately 67MB compressed and 250MB
 </div>
 <div class="sect2">
 <h3 id="download_input_and_target_files_2">Download Input and Target Files</h3>
-<div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 3:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase3_ldt_ensrst.tgz
-% tar -xzf testcase3_ldt_ensrst.tgz -C .</code></pre>
-</div>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -991,10 +983,19 @@ The compressed tar file for this step is approximately 67MB compressed and 250MB
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately ??? compressed and ??? unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>77KB</strong> compressed and <strong>180KB</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 3:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase3_ldt_ensrst.tgz
+% tar -xzf testcase3_ldt_ensrst.tgz -C .</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The following files and directories were added to your common working directory, <code>$WORKING_DIR</code>:</p>
@@ -1092,11 +1093,15 @@ Number of ensembles per tile (output restart):  12</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal and the run appears successful, use <code>tail ldtlog.0000</code> to look for a confirmation message:</p>
+<p>The run should take a few minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal, verify that the run completed successfully by checking for the following confirmation at the end of the <code>ldtlog.0000</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs"># Insert example output of tail ldtlog.0000</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tail ldtlog.0000
+...
+ --------------------------------
+  Finished LDT run
+ --------------------------------</code></pre>
 </div>
 </div>
 </div>
@@ -1158,15 +1163,6 @@ Number of ensembles per tile (output restart):  12</code></pre>
 </div>
 <div class="sect2">
 <h3 id="download_input_and_target_files_3">Download Input and Target Files</h3>
-<div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 4:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase4_ldt_lsmcdf.tgz
-% tar -xzf testcase4_ldt_lsmcdf.tgz -C .</code></pre>
-</div>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1174,10 +1170,19 @@ Number of ensembles per tile (output restart):  12</code></pre>
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately ??? compressed and ??? unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>362KB</strong> compressed and <strong>815KB</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 4:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase4_ldt_lsmcdf.tgz
+% tar -xzf testcase4_ldt_lsmcdf.tgz -C .</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The following files and directories were added to your common working directory <code>$WORKING_DIR</code>:</p>
@@ -1282,7 +1287,7 @@ LIS soil moisture domain resolution (dy):   0.25</code></pre>
 <p>Copy your compiled <strong><em>LDT</em></strong> executable into <code>$WORKING_DIR/DA_proc_LSM</code></p>
 </li>
 <li>
-<p>Run the <strong><em>LDT</em></strong> executable using the provided <code>ldt.config</code> file:</p>
+<p>Run the <strong><em>LDT</em></strong> executable using the provided <code>ldt.config.noah36_cdf</code> file:</p>
 </li>
 </ol>
 </div>
@@ -1292,11 +1297,15 @@ LIS soil moisture domain resolution (dy):   0.25</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The run should take a few minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal and the run appears successful, use <code>tail ldtlog.0000</code> to look for a confirmation message:</p>
+<p>The run should take a few minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal, verify that the run completed successfully by checking for the following confirmation at the end of the <code>ldtlog.0000</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs"># Insert example output of tail ldtlog.0000</code></pre>
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tail ldtlog.0000
+...
+ --------------------------------
+  Finished LDT run
+ --------------------------------</code></pre>
 </div>
 </div>
 </div>
@@ -1336,16 +1345,13 @@ LIS soil moisture domain resolution (dy):   0.25</code></pre>
 <h2 id="step_5_generate_observations_cdf_based_files_ldt">Step 5: Generate Observations CDF-based Files (LDT)</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="download_input_and_target_files_4">Download Input and Target Files</h3>
+<h3 id="overview_5">Overview</h3>
 <div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 5:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase5_ldt_obscdf.tgz
-% tar -xzf testcase5_ldt_obscdf.tgz -C .</code></pre>
+<p>In this step you will use LDT to generate CDF files from the satellite-based soil moisture (SM) observations collected by NASA&#8217;s <strong>S</strong>oil <strong>M</strong>oisture <strong>A</strong>ctive <strong>P</strong>assive (SMAP) mission. The observation based CDF files generated in this step will be used along with the model CDF files created in Step 4 for the data assimilation run in Step 6.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="download_input_and_target_files_4">Download Input and Target Files</h3>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1353,10 +1359,239 @@ LIS soil moisture domain resolution (dy):   0.25</code></pre>
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately ??? compressed and ??? unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>4.5GB</strong> compressed and <strong>5.3GB</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 5:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase5_ldt_obscdf.tgz
+% tar -xzf testcase5_ldt_obscdf.tgz -C .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following files and directories were added to your common working directory <code>$WORKING_DIR</code>:</p>
+</div>
+<table class="tableblock frame-topbot grid-all stripes-odd fit-content">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DA_proc_SMAP/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A directory containing the files below</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ldt.config.smapobs_cdf</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The LDT config file for this step</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_ldtlog.0000</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT log file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_cdf_smapobs_domain.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT-generated Noah LSM <em>domain</em> file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>target_cdf_smapobs.nc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The target LDT-generated Noah LSM <em>CDF</em> file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>RS_DATA.tgz</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A tar file containing sample SMAP soil moisture observations</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Unpack <code>RS_DATA.tgz</code> in your <code>$WORKING_DIR</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tar -xzf RS_DATA.tgz -C .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A new directory named <code>RS_DATA</code> contains sample soil moisture observations from the <a href="https://nsidc.org/data/SPL3SMP/versions/5" target="_blank" rel="noopener"><em>SMAP L3 Radiometer Global Daily 36 km EASE-Grid Soil Moisture</a></em> data product.</p>
+</div>
+<div class="quoteblock">
+<div class="title">SMAP SPL3SMP.005 dataset description:</div>
+<blockquote>
+This Level-3 (L3) soil moisture product provides a composite of daily estimates of global land surface conditions retrieved by the Soil Moisture Active Passive (SMAP) passive microwave radiometer. SMAP L-band soil moisture data are resampled to a global, cylindrical 36 km Equal-Area Scalable Earth Grid, Version 2.0 (EASE-Grid 2.0).
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Use <code>ncview</code> to view the  data for 3/1/2017.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ncview RS_DATA/SMAP/SPL3SMP.005/2017.03.01/SMAP_L3_SM_P_20170301_R16010_001.h5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When <code>ncview</code> opens, click and hold on one of the subdataset buttons under the color bar (e.g., <code>Soil_Moisture_Retrieval_Data_AM (36 vars)</code>) to open the list of variables. Release the mouse button on the variable you would like to plot (e.g., <code>soil_moisture</code>).</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Due to the way the data is formatted, the plot will appear upside down. Click on the <em>Inv P</em> button in the main <code>ncview</code> window to invert the plot.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/images/step_5_SMAP_data_viz.png" alt="step 5 SMAP data viz">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="the_ldt_configuration_file_4">The LDT Configuration File</h3>
+<div class="paragraph">
+<p>Review the contents of <code>DA_proc_SMAP/ldt.config.smapobs_cdf</code> to view the configuration settings used for this step:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">LDT running mode: "DA preprocessing" <i class="conum" data-value="1"></i><b>(1)</b>
+...
+DA preprocessing method:            "CDF generation"
+DA observation source:              "NASA SMAP soil moisture"
+Name of the preprocessed DA file:   "./cdf_smapobs" <i class="conum" data-value="2"></i><b>(2)</b>
+Apply anomaly correction to obs:    0
+Temporal resolution of CDFs:        "yearly" <i class="conum" data-value="3"></i><b>(3)</b>
+Number of bins to use in the CDF:   100
+Observation count threshold:        30
+Temporal averaging interval:        "1da"<i class="conum" data-value="4"></i><b>(4)</b>
+Apply external mask:                0
+External mask director:             none
+...
+NASA SMAP soil moisture observation directory: ../RS_DATA/SMAP/SPL3SMP.005  <i class="conum" data-value="5"></i><b>(5)</b>
+NASA SMAP soil moisture data designation:      SPL3SMP <i class="conum" data-value="6"></i><b>(6)</b>
+NASA SMAP search radius for openwater proximity detection: 3 <i class="conum" data-value="7"></i><b>(7)</b>
+SMAP(NASA) soil moisture Composite Release ID (e.g., R16): R16 <i class="conum" data-value="8"></i><b>(8)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><em>DA preprocessing</em> mode is used to generate the observation domain and scaling parameters.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Prefix of output files (e.g., <code>cdf_smapobs_domain.nc</code>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Temporal resolution of resultant CDF. Specifies whether to generate lumped (i.e., considering all years and all seasons) CDFs or to stratify CDFs for each calendar month.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Averaging interval used while computing CDF. In this case, one day.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Relative path to the directory containing SMAP observation data.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Specifies which SMAP data product is being used.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Specifies the radius in which LDT search to detect open water Then removes all pixels within the radius in the CDF calculations.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Specifies the release ID of the SMAP dataset.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>See the official LDT documentation for more information about configuration settings.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="running_ldt_da_preprocessing_step_2">Running LDT - DA Preprocessing Step</h3>
+<div class="paragraph">
+<p>You&#8217;re now ready to run LDT:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy your compiled <strong><em>LDT</em></strong> executable into <code>$WORKING_DIR/DA_proc_SMAP</code></p>
+</li>
+<li>
+<p>Run the <strong><em>LDT</em></strong> executable using the provided <code>ldt.config.smapobs_cdf</code> file:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% ./LDT ldt.config.smapobs_cdf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The run should take a few minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of <code>ldtlog.0000</code>. If no errors print to the terminal, verify that the run completed successfully by checking for the following confirmation at the end of the <code>ldtlog.0000</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% tail ldtlog.0000
+...
+ --------------------------------
+  Finished LDT run
+ --------------------------------</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The run created two new files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cdf_smapobs.nc</code></p>
+</li>
+<li>
+<p><code>cdf_smapobs_domain.nc</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><mark>ADD DESCRIPTION OF THESE FILES?</mark></p>
+</div>
+<div class="paragraph">
+<p>Use <code>ncview</code> to plot the <code>SoilMoist_domain</code> variable contained in <code>cdf_smapobs_domain.nc</code>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="/images/step_5_SMAP_CDF_domain_viz.png" alt="step 5 SMAP CDF domain viz">
+</div>
+</div>
+<div class="paragraph">
+<p>Use <code>nccmp</code> to directly compare the contents of <code>cdf_smapobs_domain.nc</code> with the provided target. They should be identical.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% nccmp -dsf cdf_smapobs_domain.nc target_cdf_smapobs_domain.nc
+Files "cdf_smapobs_domain.nc" and "target_cdf_smapobs_domain.nc" are identical.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wrap_up_3">Wrap Up</h3>
+<div class="paragraph">
+<p>You now have all of the files needed to perform the data assimilation run.</p>
 </div>
 </div>
 </div>
@@ -1366,15 +1601,6 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="download_input_and_target_files_5">Download Input and Target Files</h3>
-<div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 6:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase6_lis_da.tgz
-% tar -xzf testcase6_lis_da.tgz -C .</code></pre>
-</div>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1382,10 +1608,19 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately ??? compressed and ??? unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>???</strong> compressed and <strong>???</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 6:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase6_lis_da.tgz
+% tar -xzf testcase6_lis_da.tgz -C .</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1395,15 +1630,6 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="download_input_and_target_files_6">Download Input and Target Files</h3>
-<div class="paragraph">
-<p>The files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 7:</p>
-</div>
-<div id="download-step1" class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase7_lvt_expcomp.tgz
-% tar -xzf testcase7_lvt_expcomp.tgz -C .</code></pre>
-</div>
-</div>
 <div class="admonitionblock caution">
 <table>
 <tr>
@@ -1411,10 +1637,19 @@ The compressed tar file for this step is approximately ??? compressed and ??? un
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-The compressed tar file for this step is approximately ??? compressed and ??? unpacked. Ensure that you have enough storage available before downloading testcase files.
+The tar file for this step is approximately <strong>???</strong> compressed and <strong>???</strong> unpacked. Ensure that you have enough storage available before downloading testcase files.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>The tar files used in this walkthrough are available on the <a href="https://lis.gsfc.nasa.gov/tests/lis">LIS Testcase website</a>. From within your <code>$WORKING_DIR</code>, download and unpack the compressed tar file containing the inputs and target outputs for Step 7:</p>
+</div>
+<div id="download-step1" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="shell" class="language-shell hljs">% curl -O https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/testcase7_lvt_expcomp.tgz
+% tar -xzf testcase7_lvt_expcomp.tgz -C .</code></pre>
+</div>
 </div>
 </div>
 </div>

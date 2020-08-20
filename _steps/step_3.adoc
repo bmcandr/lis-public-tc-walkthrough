@@ -2,8 +2,8 @@
 
 :step-label: Step 3
 :download-filename: testcase3_ldt_ensrst.tgz
-:input-filesize-compressed: ???
-:input-filesize-unpacked: ???
+:input-filesize-compressed: 77KB
+:input-filesize-unpacked: 180KB
 
 === Overview
 

@@ -5,6 +5,9 @@
 :input-filesize-compressed: 77KB
 :input-filesize-unpacked: 180KB
 
+:ldt-run-dir: DA_ensrst
+:ldt-config-filename: ldt.config
+
 === Overview
 
 In Step 1, you used LDT to perform parameter processing for the Noah-3.6 land surface model (LSM) to generate a Noah-3.6 parameter input file to be used by LIS (and LVT). In addition to parameter processing, LDT can be used to _upscale_ and _downscale_ ensembles.
@@ -71,22 +74,7 @@ Number of ensembles per tile (output restart):  12
 
 === Running LDT -  Generate Ensemble Restart File
 
-You're now ready to run LDT:
-
-. Copy your compiled *_LDT_* executable into `$WORKING_DIR/DA_ensrst`
-. Run the *_LDT_* executable using the provided `ldt.config` file:
-
-[source,shell]
-----
-% ./LDT ldt.config
-----
-
-If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of `ldtlog.0000`. If no errors print to the terminal and the run appears successful, use `tail ldtlog.0000` to look for a confirmation message:
-
-[source,shell]
-----
-# Insert example output of tail ldtlog.0000
-----
+include::running_ldt.adoc[]
 
 === LDT Output Files
 

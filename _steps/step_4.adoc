@@ -2,8 +2,8 @@
 
 :step-label: Step 4
 :download-filename: testcase4_ldt_lsmcdf.tgz
-:input-filesize-compressed: ???
-:input-filesize-unpacked: ???
+:input-filesize-compressed: 362KB
+:input-filesize-unpacked: 815KB
 
 === Overview
 

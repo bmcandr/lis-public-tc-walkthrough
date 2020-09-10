@@ -17,26 +17,13 @@ To begin, create and step into a working directory that you will use throughout 
 
 === Clone the LISF Source Code Repository
 
-While inside your `$WORKING_DIR` use `git` to clone the LISF repository:
+While inside your `$WORKING_DIR` use `git` to clone the LISF repository and check out commit {url-rev-commit}[{compatible-commit-id}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_):
 
 [#clone-lis]
 [source,shell,subs="attributes"]
 ----
 % git clone {url-lis-github}
-----
-
-Then change directories into `LISF/`:
-
-[source,shell]
-----
 % cd LISF
-----
-
-Use `git` again to check out commit {url-rev-commit}[{compatible-commit-id}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
-
-[#checkout-commit]
-[source,shell,subs="attributes"]
-----
 % git checkout {compatible-commit-id}
 ----
 
@@ -56,6 +43,6 @@ For information about configuration settings and detailed compilation instructio
 % cd ..                    # change directories back into LISF
 ----
 
-Repeat the above process to generate the LIS and LVT executables.
+Repeat the above process in the `lis/` and `lvt/` directories to generate the _LIS_ and _LVT_ executables.
 
 Change directories back into your `$WORKING_DIR` which should now contain three executable files: `LDT`, `LIS`, `LVT`. You are ready to proceed with <<{title-step1}>>.

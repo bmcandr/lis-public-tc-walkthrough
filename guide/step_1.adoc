@@ -18,7 +18,7 @@ NOTE: These testcases were designed to be run in sequential order and later step
 
 ==== Steps to Running LDT
 
-. Compile the LDT source code to generate the LDT executable (see <<setup>>)
+. Compile the LDT source code to generate the LDT executable (see <<_setup>>)
 . Collect input data needed by LDT
 . Modify `ldt.config` file to define runtime configuration settings
 . Run the LDT executable

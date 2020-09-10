@@ -1,6 +1,8 @@
 == {title-step7}
 
 :step-label: Step 7
-:download-filename: {step7-filename}
+:download-filename: testcase7_lvt_expcomp.tgz
+:input-filesize-compressed: 150KB
+:input-filesize-unpacked: 700KB
 
 include::download_input_files.adoc[]

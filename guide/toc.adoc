@@ -1,6 +1,6 @@
 == Table of Contents
 
-* <<_setup>>
+* <<setup>>
 * <<{title-step1}>>
 * <<{title-step2}>>
 * <<{title-step3}>>

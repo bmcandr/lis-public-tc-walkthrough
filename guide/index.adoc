@@ -7,21 +7,12 @@
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
 :icons: font
-// base directory for all images
-:imagesdir: ./images
-// icon attributes
-:favicon: {imagesdir}/favicons/favicon.ico
-// disable figure captions
-:figure-caption!:
-// use default asciidoctor css stylesheet
-//:stylesheet: asciidoctor.css
-// source code highlighting engine
-:source-highlighter: highlightjs
+:source-highlighter: highlightjs        // source code highlighting engine
+:favicon: {imagesdir}/favicons/favicon.png          // favicon location
+:figure-caption!:                       // disable figure captions
 
-// github-related attributes
-:rev-commit: 3625aa3
-:url-lis-github: https://github.com/NASA-LIS/LISF
-:url-rev-commit: {url-lis-github}/commit/{rev-commit}
+// github commit known to be compatible with this walkthrough
+:compatible-commit-id: 3625aa3
 
 // lis urls
 :url-lis-official-docs: https://lis.gsfc.nasa.gov/documentation/lis
@@ -29,15 +20,8 @@
 :url-lis-website: https://lis.gsfc.nasa.gov
 :url-lis-testcases-page: {url-lis-website}/tests/lis
 :url-lis-testcases-data: https://portal.nccs.nasa.gov/lisdata_pub/Tutorials/Web_Version/
-
-// testcase filenames
-:step1-filename: testcase1_ldt_parms.tgz
-:step2-filename: testcase2_lis_ol.tgz
-:step3-filename: testcase3_ldt_ensrst.tgz
-:step4-filename: testcase4_ldt_lsmcdf.tgz
-:step5-filename: testcase5_ldt_obscdf.tgz
-:step6-filename: testcase6_lis_da.tgz
-:step7-filename: testcase7_lvt_expcomp.tgz
+:url-lis-github: https://github.com/NASA-LIS/LISF.git
+:url-rev-commit: {url-lis-github}/commit/{compatible-commit-id}
 
 // step titles
 :title-step1: Step 1: LSM Parameter Processing Run (LDT)

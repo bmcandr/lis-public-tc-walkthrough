@@ -11,8 +11,8 @@ To begin, create and step into a working directory that you will use throughout 
 [#create-workingdir]
 [source,shell,subs="attributes"]
 ----
-$ mkdir {workingdir}
-$ cd {workingdir}
+% mkdir {workingdir}
+% cd {workingdir}
 ----
 
 === Clone the LISF Source Code Repository
@@ -22,38 +22,38 @@ While inside your `$WORKING_DIR` use `git` to clone the LISF repository:
 [#clone-lis]
 [source,shell,subs="attributes"]
 ----
-$ git clone https://github.com/NASA-LIS/LISF.git
+% git clone {url-lis-github}
 ----
 
-Then, change directories into `LISF/`:
+Then change directories into `LISF/`:
 
 [source,shell]
 ----
-$ cd LISF
+% cd LISF
 ----
 
-Use `git` again to check out commit {url-rev-commit}[{rev-commit}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
+Use `git` again to check out commit {url-rev-commit}[{compatible-commit-id}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_).
 
 [#checkout-commit]
 [source,shell,subs="attributes"]
 ----
-$ git checkout {rev-commit}
+% git checkout {compatible-commit-id}
 ----
 
 === Configure and Compile the LISF Components
 
 For information about configuration settings and detailed compilation instructions, see the {url-lis-official-docs}[official documentation,window=_blank]. In general, the compilation process for each component is as follows:
 
-[#compile-ldt]
+[#compile-example]
 [source,shell,subs="attributes"]
 ----
-$ cd ldt
-$ ./configure
+% cd ldt
+% ./configure
 > # Select compile configuration settings (see Docs)...
-$ ./compile
+% ./compile
 > # Compilation output...
-$ mv LDT ../../            # move executable up into $WORKING_DIR
-$ cd ..                    # change directories back into LISF
+% mv LDT ../../            # move executable up into $WORKING_DIR
+% cd ..                    # change directories back into LISF
 ----
 
 Repeat the above process to generate the LIS and LVT executables.

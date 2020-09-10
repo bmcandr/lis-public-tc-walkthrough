@@ -8,6 +8,7 @@
 :revremark: Migrated to AsciiDoc
 :icons: font
 :source-highlighter: highlightjs        // source code highlighting engine
+:imagesdir: ../images
 :favicon: {imagesdir}/favicons/favicon.png          // favicon location
 :figure-caption!:                       // disable figure captions
 
@@ -36,7 +37,13 @@
 
 include::intro.adoc[]
 
+// page break
+<<<
+
 include::toc.adoc[]
+
+// page break
+<<<
 
 include::setup.adoc[]
 

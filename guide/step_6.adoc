@@ -1,31 +1,22 @@
-== {title-step6}
+= {title-step6}
 
 :step-label: Step 6
 :download-filename: testcase6_lis_da.tgz
 :input-filesize-compressed: 80MB
 :input-filesize-unpacked: 220MB
 
-=== Overview
-
-[.float-group]
---
-image::step_6_interoperability_fig.png[width=500px,float="right"]
+== Overview
 
 The *Data Assimilation (DA) subsystem* in LIS is primarily used for state estimation (i.e., correction of model states based on observations) and supports the interoperable use of multiple land surface models, algorithms, and observational data sources. The DA subsystem also provides support for concurrent data assimilation, forward models, radiance assimilation, and observation operators employing advanced data fusion methods (i.e., deep learning). Advanced data assimilation algorithms such as _Ensemble Kalman Filter (EnKF)_ and _Ensemble Kalman Smoother (EnKS)_ are available.
---
+
+image::step_6_interoperability_fig.png[pdfwidth=50%,align="center"]
 
 [NOTE]
 ====
 For more information:
 
-Kumar, S. V., R. H. Reichle, C. D. Peters-Lidard, R. D. Koster, X. Zhan, W. T. Crow, J. B. Eylander, and P. R. Houser, 2008: A Land Surface Data Assimilation Framework using the Land Information System: Description and Applications, _Adv. Wat. Res., 31, 1419-1432, link:https://www.sciencedirect.com/science/article/abs/pii/S0309170808000146[doi:10.1016/j.advwatres.2008.01.013].
+Kumar, S. V., R. H. Reichle, C. D. Peters-Lidard, R. D. Koster, X. Zhan, W. T. Crow, J. B. Eylander, and P. R. Houser, 2008: A Land Surface Data Assimilation Framework using the Land Information System: Description and Applications, _Adv. Wat. Res._, 31, 1419-1432, link:https://www.sciencedirect.com/science/article/abs/pii/S0309170808000146[doi:10.1016/j.advwatres.2008.01.013].
 ====
-
-[.float-group]
---
-
-.Example DA output: variance of normalized innovations
-image::step_6_innovations_var_fig.png[width=350px,float="right"]
 
 The DA subsystem outputs a number of diagnostics including:
 
@@ -34,7 +25,8 @@ The DA subsystem outputs a number of diagnostics including:
 
 The Land Verification Toolkit (LVT) handles automated processing of these outputs.
 
---
+.Example DA output: variance of normalized innovations
+image::step_6_innovations_var_fig.png[width=350px,align="center"]
 
 include::download_input_files.adoc[]
 
@@ -65,7 +57,7 @@ This step relies on files downloaded or generated in the previous steps. In addi
 |===
 ====
 
-=== The LIS Configuration File
+== The LIS Configuration File
 
 Review the contents of `lis.config_noah36_smapda` to view the configuration settings used for the DA run:
 
@@ -160,11 +152,11 @@ SMAP(NASA) soil moisture number of bins in the CDF:          100
 SMAP(NASA) soil moisture use scaled standard deviation model: 0
 ----
 
-See the official link:{url-lis-official-docs}[LIS documentation] for more information about configuration settings.
+See the official link:{url-lis-docs}[LIS documentation] for more information about configuration settings.
 
-=== Specifying Perturbation Settings
+== The Perturbation Configuration Files
 
-==== Forcing Perturbations
+=== Forcing Perturbations
 
 Forcing variables and perturbation settings are defined in the files named `forcing_attribs.txt` and `forcing_pert_attribs.txt`, respectively. The paths to these files are set in the LIS configuration file (see _Forcing perturbation options_ annotation above).
 
@@ -210,7 +202,7 @@ In the snippet above, the column headings represent:
 * `xcorr` &  `ycorr`: Spatial correlation scale (deg)
 * `ccorr`: Cross-correlations with other variables
 
-==== State Perturbations
+=== State Perturbations
 
 State variables and perturbation settings are defined in the files named `noah_sm_attribs.txt` and `noah_sm_pertattribs.txt`, respectively. The paths to these files are set in the LIS configuration file (see _State perturbation options_ annotation above).
 
@@ -244,7 +236,7 @@ Soil Moisture Layer 4
   0        0.00   0.1       1          10800   0     0     0.0 0.0 0.0 1.0
 ----
 
-==== Observation Perturbations
+=== Observation Perturbations
 
 Observation variables and perturbation settings are defined in the files named `smap_attribs.txt` and `smap_pertattribs.txt`, respectively. The paths to these files are set in the LIS configuration file (see _Observation perturbation options_ annotation above).
 
@@ -267,7 +259,7 @@ SMOPS soil moisture
  0        0.04 2.5      1         43200  0     0     1.0
 ----
 
-=== Running LIS - SMAP DA Experiment
+== Run LIS - SMAP DA Experiment
 
 You're now ready to run LIS to perform the SMAP DA experiment. From `$WORKING_DIR`, run the LIS executable with the config file for this step:
 
@@ -276,10 +268,12 @@ You're now ready to run LIS to perform the SMAP DA experiment. From `$WORKING_DI
 ./LIS -f lis.config_noah36_smapda
 ----
 
-Using one processor, as we are here, the run will take approximately 30 minutes to complete. If the run aborts, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of `lislog.0000`. If no errors print to the terminal, verify that the run completed successfully by checking for the following confirmation at the end of the `lislog.0000`:
+Using one processor, as we are here, the run will take approximately 30 minutes to complete. If the run fails, troubleshoot the issue by reviewing any errors printed to the terminal and by viewing the contents of `lislog_smapda.0000`. If no errors print to the terminal, verify that the run completed successfully by checking for the following confirmation at the end of the `lislog_smapda.0000`:
 
 [source,shell]
 ----
+% tail lislog_smapda.0000
+...
 LIS Run completed.
 ----
 
@@ -287,8 +281,8 @@ View the output of the run using `GrADS`, `ncview`, Matlab, or other software. C
 
 #ADD VISUALIZATION OF OUTPUT#
 
-image::step_6_output_example.png[align="center"]
+image::step_6_output_example.png[pdfwidth=50%,align="center"]
 
-=== Wrap Up
+== Wrap Up
 
 You have completed the SMAP Data Assimilation Experiment. In Step 7, you will use the Land Verification Toolkit (LVT) to process the output of the OL and DA runs.

@@ -1,4 +1,4 @@
-=== Download Input and Target Files
+== Download Input and Target Files
 
 CAUTION: The tar file for this step is approximately *{input-filesize-compressed}* compressed and *{input-filesize-unpacked}* unpacked. Ensure that you have enough storage available before downloading testcase files.
 

@@ -1,15 +1,15 @@
-= LIS Public Testcases Walkthrough
-:author_name: Brendan McAndrew
-:author_email: brendan.b.mcandrew@nasa.gov
-:author: {author_name}
-:email: {author_email}
+= LIS Public Testcase Walkthrough
 :revnumber: 0.2
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
+:imagesdir: ../images
+:favicon: {imagesdir}/favicons/favicon.ico
+:title-page:
+:title-page-background-image: image:lisf_logo.png[fit=none,pdfwidth=50%,position=top]
+:toc: macro
+:toclevels: 1
 :icons: font
 :source-highlighter: highlightjs        // source code highlighting engine
-:imagesdir: ../images
-:favicon: {imagesdir}/favicons/favicon.png          // favicon location
 :figure-caption!:                       // disable figure captions
 
 // github commit known to be compatible with this walkthrough
@@ -35,17 +35,17 @@
 :title-step6: Step 6: LSM Data Assimilation (DA) Experiment (LIS)
 :title-step7: Step 7: Comparison of OL and DA Experiments (LVT)
 
-:toc:
-
 include::intro.adoc[]
 
 // page break
 <<<
 
-include::toc.adoc[]
+toc::[]
 
 // page break
 <<<
+
+:leveloffset: +1
 
 include::setup.adoc[]
 

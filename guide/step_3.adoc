@@ -1,4 +1,4 @@
-== {title-step3}
+= {title-step3}
 
 :step-label: Step 3
 :download-filename: testcase3_ldt_ensrst.tgz
@@ -8,7 +8,7 @@
 :ldt-run-dir: DA_ensrst
 :ldt-config-filename: ldt.config
 
-=== Overview
+== Overview
 
 In Step 1, you used LDT to perform parameter processing for the Noah-3.6 land surface model (LSM) to generate a Noah-3.6 parameter input file to be used by LIS (and LVT). In addition to parameter processing, LDT can be used to _upscale_ and _downscale_ ensembles.
 
@@ -40,7 +40,7 @@ The following files and directories were added to your common working directory,
 |`target_LIS_EnRST_NOAH36_201801010000.d01.nc`    |The target LDT-generated ensemble restart file ("EnRST") to start the Noah LSM DA run in Step 6
 |===
 
-=== The LDT Configuration File
+== The LDT Configuration File
 
 Review the contents of `DA_ensrst/ldt.config` to view the configuration settings used for this step:
 
@@ -72,11 +72,11 @@ Number of ensembles per tile (input restart):   1
 Number of ensembles per tile (output restart):  12
 ----
 
-=== Running LDT -  Generate Ensemble Restart File
+== Run LDT -  Generate Ensemble Restart File
 
 include::running_ldt.adoc[]
 
-=== LDT Output Files
+== LDT Output Files
 
 During this run, LDT produced one output file named `LIS_EnRST_NOAH36_201801010000.d01.nc` and placed it into the `OL_OUTPUT/SURFACEMODEL` directory in your `$WORKING_DIR`.
 

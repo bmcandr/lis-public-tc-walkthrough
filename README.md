@@ -1,4 +1,4 @@
-# LIS Public Testcases
+# LIS Public Testcase Walkthrough
 
 This repository contains a walkthrough guide that demonstrates how to use NASA's Land Information System (LIS) Framework.
 

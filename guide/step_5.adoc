@@ -100,7 +100,7 @@ The run created two new files:
 * `cdf_smapobs.nc`
 * `cdf_smapobs_domain.nc`
 
-#ADD DESCRIPTION OF THESE FILES?#
+// TODO: ADD DESCRIPTION OF THESE FILES?
 
 Use `ncview` to plot the `SoilMoist_domain` variable contained in `cdf_smapobs_domain.nc`:
 

@@ -122,7 +122,7 @@ The output files created by LIS were placed into a new directory called `OL_OUTP
 
 Within each of those subdirectories are NetCDF-formatted LIS output files that contain the Noah-3.6 fields of interest (e.g., soil moisture, runoff, evapotranspiration). Use any visualization package you are comfortable with to view the files (e.g., Matlab, GrADS, `ncview`). For GrADS users, descriptor files were provided with the input data.
 
-#ADD EXAMPLE HERE#
+// TODO: ADD EXAMPLE HERE
 
 == Wrap-up
 

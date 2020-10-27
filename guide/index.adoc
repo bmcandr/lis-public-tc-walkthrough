@@ -2,7 +2,7 @@
 :revnumber: 0.2
 :revdate: July 18, 2020
 :revremark: Migrated to AsciiDoc
-:imagesdir: ../images
+:imagesdir: ./images
 :favicon: {imagesdir}/favicons/favicon.ico
 :title-page:
 :title-page-background-image: image:lisf_logo.png[fit=none,pdfwidth=50%,position=top]

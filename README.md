@@ -9,7 +9,7 @@ This repository contains a walkthrough guide that demonstrates how to use NASA's
 ### Web Browser
 
 1. Install the [AsciiDoctor Browser Extension](https://github.com/asciidoctor/asciidoctor-browser-extension#asciidoctor-browser-extension) for your browser of choice. You may need to restart your browser after installation.
-2. [Click here!](https://raw.githubusercontent.com/bmcandr/lis-public-tc-walkthrough/master/guide/index.adoc) (it may take a few seconds to render) 
+2. [Click here!](https://raw.githubusercontent.com/bmcandr/lis-public-tc-walkthrough/master/doc/index.adoc) (it may take a few seconds to render) 
 
 ### PDF
 

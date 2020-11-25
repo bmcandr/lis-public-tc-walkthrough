@@ -16,9 +16,7 @@
 :compatible-commit-id: 3625aa3
 
 // lis urls
-:url-lis-docs: https://lis.gsfc.nasa.gov/documentation/lis
-:url-ldt-docs: https://lis.gsfc.nasa.gov/documentation/ldt
-:url-lvt-docs: https://lis.gsfc.nasa.gov/documentation/lvt
+:url-lis-docs: https://github.com/NASA-LIS/LISF/tree/master/docs
 :url-lis-bootcamp: https://bmcandr.github.io/lis-bootcamp
 :url-lis-website: https://lis.gsfc.nasa.gov
 :url-lis-testcases-page: {url-lis-website}/tests/lis

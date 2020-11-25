@@ -39,7 +39,7 @@ Files and directories beginning with `target` are provided to compare with the o
 
 == The LDT Configuration File
 
-The LDT configuration file contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the {url-ldt-docs}[official documentation,window=_blank].
+The LDT configuration file contains input settings used by LDT at run-time to generate input files for LIS. The configuration options are described in depth in the {url-lis-docs}[official documentation,window=_blank].
 
 Before continuing, review the contents of the LDT configuration file for our LDT-based Noah.3.6 parameter test case by printing the file contents to the terminal with `cat` or opening the file with a text editor such as `vim` or `emacs`. Key elements of the file are highlighted below:
 
@@ -88,7 +88,7 @@ LISF configuration files use relative paths to describe file locations. Keep thi
 
 === Noah Land Surface Model Parameters
 
-As you may have noticed, these testcases utilize NOAA/NCAR's Noah LSM, v3.6. The input parameters selected in `{ldt-config-filename}` include:
+As you may have noticed, these testcases utilize NOAA/NCAR's Noah LSM, v3.6. The input parameters selected in `ldt.config.noah36_params` include:
 
 [cols="2*",options=header,frame=topbot,stripes=odd]
 [%autowidth]

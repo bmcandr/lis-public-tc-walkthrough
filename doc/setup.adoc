@@ -2,11 +2,15 @@
 
 :workingdir: lis-public-testcases
 
-WARNING: If you have not set up your computing environment to compile and run the LISF code, review the {url-lis-docs}[official documentation,window=_blank].
+WARNING: If you have not set up your computing environment to compile and run
+the LISF code, review the {url-lis-docs}[official documentation,window=_blank].
 
 == Create a working directory
 
-To begin, create and step into a working directory that you will use throughout the testcases. This directory will be referred to as `$WORKING_DIR` from this point forward. In the following example, the working directory is called `{workingdir}`:
+To begin, create and step into a working directory that you will use throughout
+the testcases. This directory will be referred to as `$WORKING_DIR` from this
+point forward. In the following example, the working directory is called
+`{workingdir}`:
 
 [#create-workingdir]
 [source,shell,subs="attributes"]
@@ -17,7 +21,9 @@ To begin, create and step into a working directory that you will use throughout 
 
 == Clone the LISF Source Code Repository
 
-While inside your `$WORKING_DIR` use `git` to clone the LISF repository and check out commit {url-rev-commit}[{compatible-commit-id}], a snapshot of the code known to be compatible with these testcases (_as of {revdate}_):
+While inside your `$WORKING_DIR` use `git` to clone the LISF repository and
+check out commit {url-rev-commit}[{compatible-commit-id}], a snapshot of the
+code known to be compatible with these testcases (_as of {revdate}_):
 
 [#clone-lis]
 [source,shell,subs="attributes"]
@@ -29,7 +35,9 @@ While inside your `$WORKING_DIR` use `git` to clone the LISF repository and chec
 
 == Configure and Compile the LISF Components
 
-For information about configuration settings and detailed compilation instructions, see the {url-lis-docs}[official documentation,window=_blank]. In general, the compilation process for each component is as follows:
+For information about configuration settings and detailed compilation
+instructions, see the {url-lis-docs}[official documentation,window=_blank]. In
+general, the compilation process for each component is as follows:
 
 [#compile-example]
 [source,shell,subs="attributes"]
@@ -43,6 +51,8 @@ For information about configuration settings and detailed compilation instructio
 % cd ..                    # change directories back into LISF
 ----
 
-Repeat the above process in the `lis/` and `lvt/` directories to generate the _LIS_ and _LVT_ executables.
+Repeat the above process in the `lis/` and `lvt/` directories to generate the
+_LIS_ and _LVT_ executables.
 
-Change directories back into your `$WORKING_DIR` which should now contain three executable files: `LDT`, `LIS`, `LVT`.
+Change directories back into your `$WORKING_DIR` which should now contain three
+executable files: `LDT`, `LIS`, `LVT`.

@@ -1,7 +1,7 @@
 = {title-step2}
 
 :step-label: Step 2
-:download-filename: testcase2_lis_ol.tgz
+:download-filename: testcase2_lis_ol_2020.tar.gz
 :input-filesize-compressed: 67MB
 :input-filesize-unpacked: 250MB
 

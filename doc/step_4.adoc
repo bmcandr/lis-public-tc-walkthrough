@@ -1,7 +1,7 @@
 = {title-step4}
 
 :step-label: Step 4
-:download-filename: testcase4_ldt_lsmcdf.tgz
+:download-filename: testcase4_ldt_lsmcdf_2020.tar.gz
 :input-filesize-compressed: 362KB
 :input-filesize-unpacked: 815KB
 

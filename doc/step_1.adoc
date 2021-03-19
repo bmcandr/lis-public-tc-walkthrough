@@ -2,7 +2,7 @@
 
 :step-label: Step 1
 
-:download-filename: testcase1_ldt_parms.tgz
+:download-filename: testcase1_ldt_parms_2020.tar.gz
 :input-filesize-compressed: 350MB
 :input-filesize-unpacked: 4.1GB
 :ldt-run-dir: 

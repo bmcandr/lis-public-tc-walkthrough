@@ -1,7 +1,7 @@
 = {title-step3}
 
 :step-label: Step 3
-:download-filename: testcase3_ldt_ensrst.tgz
+:download-filename: testcase3_ldt_ensrst_2020.tar.gz
 :input-filesize-compressed: 77KB
 :input-filesize-unpacked: 180KB
 

@@ -162,9 +162,10 @@ SMAP(NASA) soil moisture data designation:       SPL3SMP
 SMAP(NASA) soil moisture data directory:        ./RS_DATA/SMAP/SPL3SMP.005
 SMAP(NASA) soil moisture use scaled standard deviation model: 0
 SMAP(NASA) soil moisture apply SMAP QC flags:                 1
-SMAP(NASA) model CDF file: 		        ./DA_proc_LSM/cdf_noah36.nc  
-SMAP(NASA) observation CDF file:		./DA_proc_SMAP/cdf_smapobs.nc  
+SMAP(NASA) model CDF file:              ./DA_proc_LSM/cdf_noah36.nc
+SMAP(NASA) observation CDF file:        ./DA_proc_SMAP/cdf_smapobs.nc
 SMAP(NASA) soil moisture number of bins in the CDF:          100
+SMAP(NASA) CDF read option: 0
 SMAP(NASA) soil moisture use scaled standard deviation model: 0
 SMAP(NASA) soil moisture Composite Release ID: R16
 ----

@@ -109,9 +109,8 @@ include::running_ldt.adoc[]
 
 == LDT Output Files
 
-During this run, LDT produced a domain file, `cdf_noah36_domain.nc`, and a LSM
-CDF file,  `cdf_noah36.nc`, and placed them into the `OL_OUTPUT` directory in
-your `$WORKING_DIR`. If GrADS is installed, use the provided GrADS descriptor
+During this run LDT produced a domain file, `cdf_noah36_domain.nc`, and a LSM
+CDF file,  `cdf_noah36.nc` in the `DA_proc_LSM` directory. If GrADS is installed, use the provided GrADS descriptor
 files to plot the output shown below.
 
 [source,shell]

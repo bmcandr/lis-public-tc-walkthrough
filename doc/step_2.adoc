@@ -118,7 +118,7 @@ In your `$WORKING_DIR`, execute the following command:
 LIS can also be run in parallel. The examples in this walkthrough, however, 
 demonstrate how to run LIS on a single processor. To learn how to run LIS in 
 parallel, see Chapter 6 in 
-link:{url-lis-official-docs}[the official LIS documentation].
+link:{url-lis-docs}[the LIS Users' Guide].
 ====
 
 With a single processor the run should take approximately 20 minutes to

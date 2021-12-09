@@ -4,6 +4,8 @@
 
 This repository contains a walkthrough guide that demonstrates how to use NASA's Land Information System (LIS) Framework.
 
+***THIS GUIDE HAS BEEN MERGED INTO THE [NASA-LIS/LISF REPOSITORY](https://github.com/NASA-LIS/LISF/tree/master/docs) AND IS NO LONGER UNDER ACTIVE DEVELOPMENT HERE.***
+
 ## How to view this document
 
 ### Web Browser
